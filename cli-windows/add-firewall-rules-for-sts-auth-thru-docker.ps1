@@ -21,8 +21,10 @@ try {
   Write-Host "Rule found"
 }
   catch [Exception] {
-  New-NetFirewallRule -DisplayName eShopOnContainers-Inbound -Confirm -Description "eShopOnContainers Inbound Rule for port range 5100-5150" -LocalAddress Any -LocalPort 5100-5150 -Protocol tcp -RemoteAddress Any -RemotePort Any -Direction Inbound
-  New-NetFirewallRule -DisplayName eShopOnContainers-Outbound -Confirm -Description "eShopOnContainers Outbound Rule for port range 5100-5150" -LocalAddress Any -LocalPort 5100-5150 -Protocol tcp -RemoteAddress Any -RemotePort Any -Direction Outbound
-  New-NetFirewallRule -DisplayName eShopOnContainers-Inbound -Confirm -Description "eShopOnContainers Inbound Rule for port range 5432-5434" -LocalAddress Any -LocalPort 5432-5434 -Protocol tcp -RemoteAddress Any -RemotePort Any -Direction Inbound
-  New-NetFirewallRule -DisplayName eShopOnContainers-Outbound -Confirm -Description "eShopOnContainers Outbound Rule for port range 5432-5434" -LocalAddress Any -LocalPort 5432-5434 -Protocol tcp -RemoteAddress Any -RemotePort Any -Direction Outbound
+  New-NetFirewallRule -DisplayName HMS-Backend-Inbound -Confirm -Description "HMS Backend-Inbound Rule for port range 5100-5150" -LocalAddress Any -LocalPort 5100-5150 -Protocol tcp -RemoteAddress Any -RemotePort Any -Direction Inbound
+  New-NetFirewallRule -DisplayName HMS-Backend-Outbound -Confirm -Description "HMS Backend-Outbound Rule for port range 5100-5150" -LocalAddress Any -LocalPort 5100-5150 -Protocol tcp -RemoteAddress Any -RemotePort Any -Direction Outbound
+  New-NetFirewallRule -DisplayName HMS-SQL-Inbound -Confirm -Description "HMS SQL Inbound Rule for port-5433" -LocalAddress Any -LocalPort 5433 -Protocol tcp -RemoteAddress Any -RemotePort Any -Direction Inbound
+  New-NetFirewallRule -DisplayName HMS-SQL-Outbound -Confirm -Description "HMS SQL Outbound Rule for 5433" -LocalAddress Any -LocalPort 5433 -Protocol tcp -RemoteAddress Any -RemotePort Any -Direction Outbound
+  New-NetFirewallRule -DisplayName HMS-Inbound -Confirm -Description "HMS Inbound Rule for port range 4200" -LocalAddress Any -LocalPort 4200 -Protocol tcp -RemoteAddress Any -RemotePort Any -Direction Inbound
+  New-NetFirewallRule -DisplayName HMS-Outbound -Confirm -Description "HMS Outbound Rule for port range 4200" -LocalAddress Any -LocalPort 4200 -Protocol tcp -RemoteAddress Any -RemotePort Any -Direction Outbound
 }
