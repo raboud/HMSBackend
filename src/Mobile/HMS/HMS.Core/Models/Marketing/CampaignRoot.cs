@@ -1,4 +1,4 @@
-﻿namespace eShopOnContainers.Core.Models.Marketing
+﻿namespace HMS.Core.Models.Marketing
 {
     using System.Collections.Generic;
 

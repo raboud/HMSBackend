@@ -1,17 +1,17 @@
-﻿using eShopOnContainers.Core;
-using eShopOnContainers.Core.Services.Order;
+﻿using HMS.Core;
+using HMS.Core.Services.Order;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace eShopOnContainers.UnitTests
+namespace HMS.UnitTests
 {
     public class OrdersServiceTests
     {
 		[Fact]
 		public async Task GetFakeOrderTest()
 		{
-			var ordersMockService = new OrderMockService();
-			var order = await ordersMockService.GetOrderAsync(1, GlobalSetting.Instance.AuthToken);
+			OrderMockService ordersMockService = new OrderMockService();
+			Core.Models.Orders.Order order = await ordersMockService.GetOrderAsync(1, GlobalSetting.Instance.AuthToken);
 
 			Assert.NotNull(order);
 		}
@@ -19,10 +19,10 @@ namespace eShopOnContainers.UnitTests
         [Fact]
         public async Task GetFakeOrdersTest()
         {
-            var ordersMockService = new OrderMockService();
-            var result = await ordersMockService.GetOrdersAsync(GlobalSetting.Instance.AuthToken);
+			OrderMockService ordersMockService = new OrderMockService();
+			System.Collections.ObjectModel.ObservableCollection<Core.Models.Orders.Order> result = await ordersMockService.GetOrdersAsync(GlobalSetting.Instance.AuthToken);
 
-            Assert.NotEqual(0, result.Count);
+            Assert.NotEmpty(result);
         }
     }
 }

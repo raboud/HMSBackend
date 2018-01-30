@@ -4,22 +4,22 @@ In the root folder of the repo are all docker-compose files (`docker-compose*.ym
 
 ## Container build
 
-* `docker-compose.ci.build.yml`: This file is for starting the build container to build the project using a container that has all needed prerequisites. Refer to [corresponding wiki section](https://github.com/dotnet-architecture/eShopOnContainers/wiki/03.-Setting-the-eShopOnContainers-solution-up-in-a-Windows-CLI-environment-(dotnet-CLI,-Docker-CLI-and-VS-Code)#build-the-bits-through-the-build-container-image) for more information.
+* `docker-compose.ci.build.yml`: This file is for starting the build container to build the project using a container that has all needed prerequisites. Refer to [corresponding wiki section](https://github.com/raboud/HMSBackend/wiki/03.-Setting-the-solution-up-in-a-Windows-CLI-environment-(dotnet-CLI,-Docker-CLI-and-VS-Code)#build-the-bits-through-the-build-container-image) for more information.
 
-## Files needed to run eShopOnContainers locally 
+## Files needed to run HMSBackend locally 
 
-* `docker-compose.yml`: This file contains **the definition of all images needed for running eShopOnContainers**.
+* `docker-compose.yml`: This file contains **the definition of all images needed for running HMSBackend**.
 * `docker-compose.override.yml`: This file contains the base configuration for all images of the previous file
 
-Usually these two files are using together. The standard way to start eShopOnContainers from CLI is:
+Usually these two files are using together. The standard way to start HMSBackend from CLI is:
 
 ```
 docker-compose -f docker-compose.yml -f docker-compose.override.yml
 ```
 
-This will start eShopOnContainers with all containers running locally, and it is the default development environment.
+This will start HMSBackend with all containers running locally, and it is the default development environment.
 
-## Files needed to run eShopOnContainers on a remote docker host
+## Files needed to run HMSBackend on a remote docker host
 
 * `docker-compose.prod.yml`: This file is a replacement of the `docker-compose.override.yml` but contains some configurations more suitable for a "production" environment or when you need to run the services using an external docker host.
 
@@ -29,29 +29,29 @@ docker-compose -f docker-compose.yml -f docker-compose.prod.yml
 
 When using this file the following environments variables must be set:
 
-* `ESHOP_PROD_EXTERNAL_DNS_NAME_OR_IP` with the IP or DNS name of the docker host that runs the services (can use `localhost` if needed). 
-* `ESHOP_AZURE_STORAGE_CATALOG` with the URL of the Azure Storage that will host the catalog images
-* `ESHOP_AZURE_STORAGE_MARKETING` with the URL of the Azure Storage that will host the marketing campaign images
+* `HMS_PROD_EXTERNAL_DNS_NAME_OR_IP` with the IP or DNS name of the docker host that runs the services (can use `localhost` if needed). 
+* `HMS_AZURE_STORAGE_CATALOG` with the URL of the Azure Storage that will host the catalog images
+* `HMS_AZURE_STORAGE_MARKETING` with the URL of the Azure Storage that will host the marketing campaign images
 
 You might wonder why an external image resource (storage) is needed when using `docker-compose.prod.yml` instead of `docker-compose.override.yml`. Answer to this is related to a limitation of Docker Compose file format. This is how we set the environment configuration of Catalog microservice in `docker-compose.override.yml`:
 
 ```
-PicBaseUrl=${ESHOP_AZURE_STORAGE_CATALOG:-http://localhost:5101/api/v1/catalog/items/[0]/pic/}
+PicBaseUrl=${HMS_AZURE_STORAGE_CATALOG:-http://localhost:5101/api/v1/catalog/items/[0]/pic/}
 ```
 
-The `PicBaseUrl` variable is set to the value of `ESHOP_AZURE_STORAGE_CATALOG` if this variable is set to any value other than blank string. If not, the value is set to `http://localhost:5101/api/v1/catalog/items/[0]/pic/`. That works perfectly in a local environment where you run all your services in `localhost` and setting `ESHOP_AZURE_STORAGE_CATALOG` you can use or not Azure Storage for the images (if you don't use Azure Storage images are served locally by catalog servide). But when you run the services in a external docker host, specified in `ESHOP_PROD_EXTERNAL_DNS_NAME_OR_IP`, the configuration should be as follows:
+The `PicBaseUrl` variable is set to the value of `HMS_AZURE_STORAGE_CATALOG` if this variable is set to any value other than blank string. If not, the value is set to `http://localhost:5101/api/v1/catalog/items/[0]/pic/`. That works perfectly in a local environment where you run all your services in `localhost` and setting `HMS_AZURE_STORAGE_CATALOG` you can use or not Azure Storage for the images (if you don't use Azure Storage images are served locally by catalog servide). But when you run the services in a external docker host, specified in `HMS_PROD_EXTERNAL_DNS_NAME_OR_IP`, the configuration should be as follows:
 
 ```
-PicBaseUrl=${ESHOP_AZURE_STORAGE_CATALOG:-http://${ESHOP_PROD_EXTERNAL_DNS_NAME_OR_IP}:5101/api/v1/catalog/items/[0]/pic/}
+PicBaseUrl=${HMS_AZURE_STORAGE_CATALOG:-http://${HMS_PROD_EXTERNAL_DNS_NAME_OR_IP}:5101/api/v1/catalog/items/[0]/pic/}
 ```
 
-So, use `ESHOP_AZURE_STORAGE_CATALOG` if set, and if not use `http://${ESHOP_PROD_EXTERNAL_DNS_NAME_OR_IP}:5101/api/v1/catalog/items/[0]/pic/}`. Unfortunately seems that docker-compose do not substitute variables inside variables, so the value that `PicBaseUrl` gets if `ESHOP_AZURE_STORAGE_CATALOG` is not set is literally `http://${ESHOP_PROD_EXTERNAL_DNS_NAME_OR_IP}:5101/api/v1/catalog/items/[0]/pic/}` without any substitution.
+So, use `HMS_AZURE_STORAGE_CATALOG` if set, and if not use `http://${HMS_PROD_EXTERNAL_DNS_NAME_OR_IP}:5101/api/v1/catalog/items/[0]/pic/}`. Unfortunately seems that docker-compose do not substitute variables inside variables, so the value that `PicBaseUrl` gets if `HMS_AZURE_STORAGE_CATALOG` is not set is literally `http://${HMS_PROD_EXTERNAL_DNS_NAME_OR_IP}:5101/api/v1/catalog/items/[0]/pic/}` without any substitution.
 
 **For more information** about docker-compose variable substitution read the [compose docs](https://docs.docker.com/compose/compose-file/#variable-substitution).
 
 ## Other files
 
-* `docker-compose.nobuild.yml`: This file contains the definition of all images needed to run the eShopOnContainers. Contains **the same images that `docker-compose.yml`** but without any `build` instruction. If you use this file instead of `docker-compose.yml` when launching the project and you don't have the images built locally, **the images will be pulled from dockerhub**. This file is not intended for development usage, but for some CI/CD scenarios.
+* `docker-compose.nobuild.yml`: This file contains the definition of all images needed to run the HMSBackend. Contains **the same images that `docker-compose.yml`** but without any `build` instruction. If you use this file instead of `docker-compose.yml` when launching the project and you don't have the images built locally, **the images will be pulled from dockerhub**. This file is not intended for development usage, but for some CI/CD scenarios.
 * `docker-compose.vs.debug.yml`: This file is used by Docker Tools of VS2017, and should not be used directly.
 * `docker-compose.vs.release.yml`: This file is used by Docker Tools of VS2017, and should not be used directly.
 
@@ -62,7 +62,7 @@ So, use `ESHOP_AZURE_STORAGE_CATALOG` if set, and if not use `http://${ESHOP_PRO
 
 All `docker-compose-windows*.yml` files have a 1:1 relationship with the same file without the `-windows` in its name. Those files are used to run Windows Containers instead of Linux Containers.
 
-* `docker-compose-windows.yml`: Contains the definitions of all containers that are needed to run eShopOnContainers using windows containers (equivalent to `docker-compose.yml`).
+* `docker-compose-windows.yml`: Contains the definitions of all containers that are needed to run HMSBackend using windows containers (equivalent to `docker-compose.yml`).
 * `docker-compose-windows.override.yml`: Contains the base configuration for all windows containers
 
 **Note** We plan **to remove** the `docker-compose-windows.override.yml` file, because it is **exactly the same** as the `docker-compose.override.yml`. The reason of its existence is historical, but is no longer needed. You can use `docker-compose.override.yml` instead.

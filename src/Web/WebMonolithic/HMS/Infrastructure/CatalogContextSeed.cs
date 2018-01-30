@@ -1,6 +1,6 @@
-﻿namespace Microsoft.eShopWeb.Infrastructure
+﻿namespace HMSWeb.Infrastructure
 {
-    using eShopWeb.Models;
+    using HMSWeb.Models;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Logging;

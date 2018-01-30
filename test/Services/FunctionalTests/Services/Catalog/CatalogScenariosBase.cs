@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
-using Microsoft.eShopOnContainers.BuildingBlocks.IntegrationEventLogEF;
-using Microsoft.eShopOnContainers.Services.Catalog.API;
-using Microsoft.eShopOnContainers.Services.Catalog.API.Infrastructure;
+using Microsoft.BuildingBlocks.IntegrationEventLogEF;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.IO;
+using HMS.Catalog.API;
+using HMS.Catalog.API.Infrastructure;
 
 namespace FunctionalTests.Services.Catalog
 {
@@ -15,18 +15,18 @@ namespace FunctionalTests.Services.Catalog
     {
         public TestServer CreateServer()
         {
-            var webHostBuilder = WebHost.CreateDefaultBuilder();
+            IWebHostBuilder webHostBuilder = WebHost.CreateDefaultBuilder();
             webHostBuilder.UseContentRoot(Directory.GetCurrentDirectory() + "\\Services\\Catalog");
             webHostBuilder.UseStartup<Startup>();
 
-            var testServer = new TestServer(webHostBuilder);
+			TestServer testServer = new TestServer(webHostBuilder);
 
             testServer.Host
                 .MigrateDbContext<CatalogContext>((context, services) =>
                 {
-                    var env = services.GetService<IHostingEnvironment>();
-                    var settings = services.GetService<IOptions<CatalogSettings>>();
-                    var logger = services.GetService<ILogger<CatalogContextSeed>>();
+					IHostingEnvironment env = services.GetService<IHostingEnvironment>();
+					IOptions<CatalogSettings> settings = services.GetService<IOptions<CatalogSettings>>();
+					ILogger<CatalogContextSeed> logger = services.GetService<ILogger<CatalogContextSeed>>();
 
                     new CatalogContextSeed()
                     .SeedAsync(context, env, settings, logger)

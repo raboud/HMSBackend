@@ -1,4 +1,4 @@
-﻿namespace Microsoft.eShopOnContainers.WebMVC.Services
+﻿namespace Microsoft.WebMVC.Services
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;

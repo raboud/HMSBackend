@@ -4,7 +4,7 @@
     <ProjectGuid>91cd7b6e-a849-48c1-b058-4bc47c4cd978</ProjectGuid>
     <DockerLaunchBrowser>True</DockerLaunchBrowser>
     <DockerServiceUrl>http://localhost:{ServicePort}</DockerServiceUrl>
-    <DockerServiceName>eshopweb</DockerServiceName>
+    <DockerServiceName>hmsweb</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
     <None Include="docker-compose.ci.build.yml" />

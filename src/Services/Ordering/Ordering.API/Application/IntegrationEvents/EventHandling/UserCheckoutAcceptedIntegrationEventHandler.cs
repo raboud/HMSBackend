@@ -1,6 +1,6 @@
 ﻿using System;
 using MediatR;
-using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions;
+using Microsoft.BuildingBlocks.EventBus.Abstractions;
 using System.Threading.Tasks;
 using Ordering.API.Application.Commands;
 using Microsoft.Extensions.Logging;

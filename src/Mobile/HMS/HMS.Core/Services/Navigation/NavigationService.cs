@@ -1,14 +1,14 @@
-﻿using eShopOnContainers.Core.Helpers;
-using eShopOnContainers.Core.ViewModels;
-using eShopOnContainers.Core.Views;
-using eShopOnContainers.Core.ViewModels.Base;
+﻿using HMS.Core.Helpers;
+using HMS.Core.ViewModels;
+using HMS.Core.Views;
+using HMS.Core.ViewModels.Base;
 using System;
 using System.Globalization;
 using System.Reflection;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace eShopOnContainers.Services
+namespace HMS.Services
 {
     public class NavigationService : INavigationService
     {

@@ -1,20 +1,20 @@
 ﻿using Autofac;
-using eShopOnContainers.Services;
+using HMS.Services;
 using System;
 using System.Globalization;
 using System.Reflection;
-using eShopOnContainers.Core.Services.Catalog;
-using eShopOnContainers.Core.Services.OpenUrl;
-using eShopOnContainers.Core.Services.RequestProvider;
-using eShopOnContainers.Core.Services.Basket;
-using eShopOnContainers.Core.Services.Identity;
-using eShopOnContainers.Core.Services.Order;
-using eShopOnContainers.Core.Services.User;
+using HMS.Core.Services.Catalog;
+using HMS.Core.Services.OpenUrl;
+using HMS.Core.Services.RequestProvider;
+using HMS.Core.Services.Basket;
+using HMS.Core.Services.Identity;
+using HMS.Core.Services.Order;
+using HMS.Core.Services.User;
 using Xamarin.Forms;
-using eShopOnContainers.Core.Services.Location;
-using eShopOnContainers.Core.Services.Marketing;
+using HMS.Core.Services.Location;
+using HMS.Core.Services.Marketing;
 
-namespace eShopOnContainers.Core.ViewModels.Base
+namespace HMS.Core.ViewModels.Base
 {
     public static class ViewModelLocator
     {

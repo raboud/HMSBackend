@@ -1,5 +1,5 @@
 ﻿using Locations.API.Model;
-using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Events;
+using Microsoft.BuildingBlocks.EventBus.Events;
 using System.Collections.Generic;
 
 namespace Locations.API.IntegrationEvents.Events

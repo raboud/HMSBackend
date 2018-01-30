@@ -1,5 +1,5 @@
-﻿using IntegrationTests.Services.Extensions;
-using Microsoft.eShopOnContainers.Services.Basket.API.Model;
+﻿using BasketAPI.Model;
+using IntegrationTests.Services.Extensions;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;
@@ -16,10 +16,10 @@ namespace IntegrationTests.Services.Basket
         [Fact]
         public async Task Post_basket_and_response_ok_status_code()
         {
-            using (var server = CreateServer())
-            {               
-                var content = new StringContent(BuildBasket(), UTF8Encoding.UTF8, "application/json");
-                var response = await server.CreateClient()
+            using (Microsoft.AspNetCore.TestHost.TestServer server = CreateServer())
+            {
+				StringContent content = new StringContent(BuildBasket(), UTF8Encoding.UTF8, "application/json");
+				HttpResponseMessage response = await server.CreateClient()
                    .PostAsync(Post.Basket, content);
 
                 response.EnsureSuccessStatusCode();
@@ -29,9 +29,9 @@ namespace IntegrationTests.Services.Basket
         [Fact]
         public async Task Get_basket_and_response_ok_status_code()
         {
-            using (var server = CreateServer())
+            using (Microsoft.AspNetCore.TestHost.TestServer server = CreateServer())
             {
-                var response = await server.CreateClient()
+				HttpResponseMessage response = await server.CreateClient()
                    .GetAsync(Get.GetBasket(1));
 
                 response.EnsureSuccessStatusCode();
@@ -41,14 +41,14 @@ namespace IntegrationTests.Services.Basket
         [Fact]
         public async Task Send_Checkout_basket_and_response_ok_status_code()
         {
-            using (var server = CreateServer())
+            using (Microsoft.AspNetCore.TestHost.TestServer server = CreateServer())
             {
-                var contentBasket = new StringContent(BuildBasket(), UTF8Encoding.UTF8, "application/json");
+				StringContent contentBasket = new StringContent(BuildBasket(), UTF8Encoding.UTF8, "application/json");
                 await server.CreateClient()
                    .PostAsync(Post.Basket, contentBasket);
 
-                var contentCheckout = new StringContent(BuildCheckout(), UTF8Encoding.UTF8, "application/json");
-                var response = await server.CreateIdempotentClient()
+				StringContent contentCheckout = new StringContent(BuildCheckout(), UTF8Encoding.UTF8, "application/json");
+				HttpResponseMessage response = await server.CreateIdempotentClient()
                    .PostAsync(Post.CheckoutOrder, contentCheckout);
 
                 response.EnsureSuccessStatusCode();
@@ -57,13 +57,13 @@ namespace IntegrationTests.Services.Basket
 
         string BuildBasket()
         {
-            var order = new CustomerBasket("1234");            
+			CustomerBasket order = new CustomerBasket("1234");            
             return JsonConvert.SerializeObject(order);
         }
 
         string BuildCheckout()
         {
-            var checkoutBasket = new BasketDTO()
+			BasketDTO checkoutBasket = new BasketDTO()
             {
                 City = "city",
                 Street = "street",

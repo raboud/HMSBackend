@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "clusterName": {
-            "value": "qa-eshop-sflinux-cluster"
+            "value": "qa-hms-sflinux-cluster"
         },
         "clusterLocation": {
             "value": "westus"
@@ -12,28 +12,28 @@
             "value": "westus"
         },
         "adminUserName": {
-            "value": "eshop"
+            "value": "hms"
         },
         "adminPassword": {
             "value": "Your_complex_Pass@word1"
         },
         "nicName": {
-            "value": "NIC-eshoponsflin"
+            "value": "NIC-hmsonsflin"
         },
         "publicIPAddressName": {
-            "value": "eshoponsflin-PubIP"
+            "value": "hmsonsflin-PubIP"
         },
         "dnsName": {
-            "value": "qa-eshop-sflinux-cluster"
+            "value": "qa-hms-sflinux-cluster"
         },
         "virtualNetworkName": {
-            "value": "VNet-eshoponsflin"
+            "value": "VNet-hmsonsflin"
         },
         "lbName": {
-            "value": "LB-eshoponsflin"
+            "value": "LB-hmsonsflin"
         },
         "lbIPName": {
-            "value": "LBIP-eshoponsflin"
+            "value": "LBIP-hmsonsflin"
         },
         "vmImageSku": {
             "value": "16.04-LTS"

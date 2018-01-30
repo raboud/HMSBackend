@@ -2,7 +2,7 @@
 using System.Linq;
 using Xamarin.Forms;
 
-namespace eShopOnContainers.Core.Effects
+namespace HMS.Core.Effects
 {
     public static class ThemeEffects
     {
@@ -46,7 +46,7 @@ namespace eShopOnContainers.Core.Effects
         private class CircleEffect : RoutingEffect
         {
             public CircleEffect()
-                : base("eShopOnContainers.CircleEffect")
+                : base("HMSBackend.CircleEffect")
             {
             }
         }

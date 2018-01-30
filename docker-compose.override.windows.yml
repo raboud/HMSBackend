@@ -12,8 +12,8 @@ version: '3.3'
 # If you are using any other rabbitmq image with any other username/pwd then you can:
 #
 #  Set your shell environment variables:
-#   - ESHOP_SERVICE_BUS_USERNAME
-#   - ESHOP_SERVICE_BUS_PASSWORD
+#   - HMS_SERVICE_BUS_USERNAME
+#   - HMS_SERVICE_BUS_PASSWORD
 #
 # With the appropiate values (note that you can use .env file also) AND DO NOT USE THIS FILE when launching windows container:
 #

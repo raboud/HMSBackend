@@ -1,4 +1,4 @@
-﻿namespace Microsoft.eShopOnContainers.WebMVC.Services
+﻿namespace Microsoft.WebMVC.Services
 {
     using global::WebMVC.Infrastructure;
     using AspNetCore.Authentication;

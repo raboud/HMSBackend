@@ -1,12 +1,12 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-using eShopOnContainers.Core.ViewModels.Base;
-using eShopOnContainers.Core.Helpers;
-using eShopOnContainers.Core.Models.Marketing;
-using eShopOnContainers.Core.Services.Marketing;
+using HMS.Core.ViewModels.Base;
+using HMS.Core.Helpers;
+using HMS.Core.Models.Marketing;
+using HMS.Core.Services.Marketing;
 
-namespace eShopOnContainers.Core.ViewModels
+namespace HMS.Core.ViewModels
 {
     public class CampaignDetailsViewModel : ViewModelBase
     {

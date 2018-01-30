@@ -68,17 +68,17 @@ namespace WebMVC.Infrastructure
                     filterQs = $"/type/{typeQs}/brand/{brandQs}";
                 }
 
-                return $"{baseUri}items{filterQs}?pageIndex={page}&pageSize={take}";
+                return $"{baseUri}products/page?pageIndex={page}&pageSize={take}";
             }
 
             public static string GetAllBrands(string baseUri)
             {
-                return $"{baseUri}catalogBrands";
+                return $"{baseUri}brands";
             }
 
             public static string GetAllTypes(string baseUri)
             {
-                return $"{baseUri}catalogTypes";
+                return $"{baseUri}categories";
             }
         }
 

@@ -36,12 +36,12 @@ do
 done
 
 ## remove old docker images:
-#images=$(docker images --filter=reference="eshop/*" -q)
+#images=$(docker images --filter=reference="HMS/*" -q)
 #if [ -n "$images" ]; then
 #    docker rm $(docker ps -a -q) -f
-#    echo "Deleting eShop images in local Docker repo"
+#    echo "Deleting HMS images in local Docker repo"
 #    echo $images
-#    docker rmi $(docker images --filter=reference="eshop/*" -q) -f
+#    docker rmi $(docker images --filter=reference="HMS/*" -q) -f
 #fi
 
 

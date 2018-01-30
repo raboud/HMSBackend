@@ -1,4 +1,4 @@
-﻿using eShopOnContainers.WebSPA;
+﻿using HMS.WebSPA;
 using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.ApplicationInsights.ServiceFabric;
 using Microsoft.AspNetCore.Antiforgery;
@@ -15,7 +15,7 @@ using System;
 using System.IO;
 using WebSPA.Infrastructure;
 
-namespace eShopConContainers.WebSPA
+namespace HMS.WebSPA
 {
     public class Startup
     {
@@ -63,7 +63,7 @@ namespace eShopConContainers.WebSPA
             {
                 services.AddDataProtection(opts =>
                 {
-                    opts.ApplicationDiscriminator = "eshop.webspa";
+                    opts.ApplicationDiscriminator = "hms.webspa";
                 })
                 .PersistKeysToRedis(ConnectionMultiplexer.Connect(Configuration["DPConnectionString"]), "DataProtection-Keys");
             }

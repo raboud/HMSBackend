@@ -1,20 +1,20 @@
-﻿using eShopOnContainers.Core.Models.Navigation;
-using eShopOnContainers.Core.ViewModels.Base;
+﻿using HMS.Core.Models.Navigation;
+using HMS.Core.ViewModels.Base;
 using System.Windows.Input;
 using Xamarin.Forms;
 using System.Threading.Tasks;
-using eShopOnContainers.Core.Models.Orders;
+using HMS.Core.Models.Orders;
 using System;
 using System.Collections.ObjectModel;
-using eShopOnContainers.Core.Models.Basket;
+using HMS.Core.Models.Basket;
 using System.Collections.Generic;
-using eShopOnContainers.Core.Services.Basket;
-using eShopOnContainers.Core.Services.Order;
-using eShopOnContainers.Core.Helpers;
-using eShopOnContainers.Core.Services.User;
-using eShopOnContainers.Core.Models.User;
+using HMS.Core.Services.Basket;
+using HMS.Core.Services.Order;
+using HMS.Core.Helpers;
+using HMS.Core.Services.User;
+using HMS.Core.Models.User;
 
-namespace eShopOnContainers.Core.ViewModels
+namespace HMS.Core.ViewModels
 {
     public class CheckoutViewModel : ViewModelBase
     {

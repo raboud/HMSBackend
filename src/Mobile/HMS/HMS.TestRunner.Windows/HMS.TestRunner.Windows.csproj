@@ -7,8 +7,8 @@
     <ProjectGuid>{A7337243-33B8-463A-87AD-944B75EFD820}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>eShopOnContainers.TestRunner.Windows</RootNamespace>
-    <AssemblyName>eShopOnContainers.TestRunner.Windows</AssemblyName>
+    <RootNamespace>HMS.TestRunner.Windows</RootNamespace>
+    <AssemblyName>HMS.TestRunner.Windows</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
@@ -17,7 +17,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
-    <PackageCertificateKeyFile>eShopOnContainers.TestRunner.Windows_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>HMS.TestRunner.Windows_TemporaryKey.pfx</PackageCertificateKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -102,7 +102,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="eShopOnContainers.TestRunner.Windows_TemporaryKey.pfx" />
+    <None Include="HMS.TestRunner.Windows_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\Default.rd.xml" />
@@ -121,13 +121,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\eShopOnContainers.Core\eShopOnContainers.Core.csproj">
+    <ProjectReference Include="..\HMS.Core\HMS.Core.csproj">
       <Project>{ba96a12c-4ee3-46c4-bb3f-f811b554cd01}</Project>
-      <Name>eShopOnContainers.Core</Name>
+      <Name>HMS.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\eShopOnContainers.UnitTests\eShopOnContainers.UnitTests.csproj">
+    <ProjectReference Include="..\HMS.UnitTests\HMS.UnitTests.csproj">
       <Project>{f7b6a162-bc4d-4924-b16a-713f9b0344e7}</Project>
-      <Name>eShopOnContainers.UnitTests</Name>
+      <Name>HMS.UnitTests</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

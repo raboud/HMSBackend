@@ -7,8 +7,8 @@
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UseMSBuildEngine>true</UseMSBuildEngine>
     <OutputType>Library</OutputType>
-    <RootNamespace>eShopOnContainers.UnitTests</RootNamespace>
-    <AssemblyName>eShopOnContainers.UnitTests</AssemblyName>
+    <RootNamespace>HMS.UnitTests</RootNamespace>
+    <AssemblyName>HMS.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
   </PropertyGroup>
@@ -52,9 +52,9 @@
     <Folder Include="Behaviors\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\eShopOnContainers.Core\eShopOnContainers.Core.csproj">
+    <ProjectReference Include="..\HMS.Core\HMS.Core.csproj">
       <Project>{BA96A12C-4EE3-46C4-BB3F-F811B554CD01}</Project>
-      <Name>eShopOnContainers.Core</Name>
+      <Name>HMS.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

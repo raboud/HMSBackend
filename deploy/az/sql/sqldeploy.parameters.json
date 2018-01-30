@@ -4,7 +4,7 @@
   "parameters": {
     "sql_server": {
       "value": {
-        "name": "eshopsql",
+        "name": "hmssql",
         "dbs": {
           "ordering": "orderingdb",
           "identity": "identitydb",

@@ -1,11 +1,11 @@
 ﻿using Xunit;
-using eShopOnContainers.Core;
-using eShopOnContainers.Core.ViewModels;
-using eShopOnContainers.Core.ViewModels.Base;
-using eShopOnContainers.Core.Services.Order;
+using HMS.Core;
+using HMS.Core.ViewModels;
+using HMS.Core.ViewModels.Base;
+using HMS.Core.Services.Order;
 using System.Threading.Tasks;
 
-namespace eShopOnContainers.UnitTests
+namespace HMS.UnitTests
 {
 	public class OrderViewModelTests
 	{

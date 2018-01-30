@@ -1,6 +1,6 @@
 ﻿using Xamarin.UITest;
 
-namespace eShopOnContainers.UITests
+namespace HMS.UITests
 {
     public class AppInitializer
     {
@@ -10,7 +10,7 @@ namespace eShopOnContainers.UITests
             {
                 return ConfigureApp
                     .Android
-                    .ApkFile(@"..\..\..\eShopOnContainers.Droid\bin\Release\eShopOnContainers.Droid.apk")
+                    .ApkFile(@"..\..\..\HMS.Droid\bin\Release\HMS.Droid.apk")
                     .StartApp();
             }
 

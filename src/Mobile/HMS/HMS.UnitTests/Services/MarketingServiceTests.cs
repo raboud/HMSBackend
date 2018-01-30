@@ -1,4 +1,4 @@
-﻿namespace eShopOnContainers.UnitTests.Services
+﻿namespace HMS.UnitTests.Services
 {
     using System.Threading.Tasks;
     using Core;
@@ -11,8 +11,8 @@
         [Fact]
         public async Task GetFakeCampaigTest()
         {
-            var campaignMockService = new CampaignMockService();
-            var order = await campaignMockService.GetCampaignByIdAsync(1, GlobalSetting.Instance.AuthToken);
+			CampaignMockService campaignMockService = new CampaignMockService();
+			Core.Models.Marketing.CampaignItem order = await campaignMockService.GetCampaignByIdAsync(1, GlobalSetting.Instance.AuthToken);
 
             Assert.NotNull(order);
         }
@@ -20,10 +20,10 @@
         [Fact]
         public async Task GetFakeCampaignsTest()
         {
-            var campaignMockService = new CampaignMockService();
-            var result = await campaignMockService.GetAllCampaignsAsync(GlobalSetting.Instance.AuthToken);
+			CampaignMockService campaignMockService = new CampaignMockService();
+			System.Collections.ObjectModel.ObservableCollection<Core.Models.Marketing.CampaignItem> result = await campaignMockService.GetAllCampaignsAsync(GlobalSetting.Instance.AuthToken);
 
-            Assert.NotEqual(0, result.Count);
+            Assert.NotEmpty(result);
         }
     }
 }

@@ -7,12 +7,12 @@ Docker helps you package applications into images, and execute them in container
 The basic unit of a Kubernetes deployment is the **Pod**. A Pod encapsulates one or more containers. For example, the `basket` Pod specifies two containers:
 >`deployments.yaml`
 >
->The first container runs the `eshop/basket.api` image:
+>The first container runs the `hms/basket.api` image:
 >```yaml
 >spec:
 >  containers:
 >  - name: basket
->    image: eshop/basket.api
+>    image: hms/basket.api
 >    env:
 >    - name: ConnectionString
 >      value: 127.0.0.1
@@ -29,7 +29,7 @@ Placing `basket` and `basket-data` in the same Pod is reasonable here because th
 If the containers were in separate Pods, they would no longer be able to communicate via `localhost`; a **Service** would be required.
 
 ### Services
-Services expose Pods to external networks. For example, the `basket` Service exposes Pods with labels `app=eshop` and `component=basket` to the cluster at large:
+Services expose Pods to external networks. For example, the `basket` Service exposes Pods with labels `app=hms` and `component=basket` to the cluster at large:
 >`services.yaml`
 >```yaml
 >kind: Service
@@ -40,7 +40,7 @@ Services expose Pods to external networks. For example, the `basket` Service exp
 >  ports:
 >  - port: 80
 >  selector:
->    app: eshop
+>    app: hms
 >    component: basket
 >```
 Kubernetes's built-in DNS service resolves Service names to cluster-internal IP addresses. This allows the nginx frontend to proxy connections to the app's microservices by name:
@@ -57,7 +57,7 @@ The frontend Pod is different in that it needs to be exposed outside the cluster
 >  - port: 80
 >    targetPort: 8080
 >  selector:
->    app: eshop
+>    app: hms
 >    component: frontend
 >  type: LoadBalancer
 >```

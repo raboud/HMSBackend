@@ -1,11 +1,11 @@
-﻿namespace IntegrationTests.Services.Marketing
-{
-    using Microsoft.eShopOnContainers.Services.Marketing.API;
-    using Microsoft.AspNetCore.Hosting;
-    using Microsoft.AspNetCore.Builder;
-    using IntegrationTests.Middleware;
-    using Microsoft.Extensions.Configuration;
+﻿using Marketing.API;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Builder;
+using IntegrationTests.Middleware;
+using Microsoft.Extensions.Configuration;
 
+namespace IntegrationTests.Services.Marketing
+{
     public class MarketingTestsStartup : Startup
     {
         public MarketingTestsStartup(IConfiguration env) : base(env)

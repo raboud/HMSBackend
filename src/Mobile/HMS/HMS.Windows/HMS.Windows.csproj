@@ -7,8 +7,8 @@
     <ProjectGuid>{C3C1E2CF-B1F7-4654-BBDC-50143DB22E0B}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>eShopOnContainers.Windows</RootNamespace>
-    <AssemblyName>eShopOnContainers.Windows</AssemblyName>
+    <RootNamespace>HMSBackend.Windows</RootNamespace>
+    <AssemblyName>HMSBackend.Windows</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
@@ -178,9 +178,9 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\eShopOnContainers.Core\eShopOnContainers.Core.csproj">
+    <ProjectReference Include="..\HMS.Core\HMS.Core.csproj">
       <Project>{ba96a12c-4ee3-46c4-bb3f-f811b554cd01}</Project>
-      <Name>eShopOnContainers.Core</Name>
+      <Name>HMS.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

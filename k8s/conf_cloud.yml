@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: externalcfg
   labels:
-    app: eshop  
+    app: hms  
 data:
 # Basket.API entries
   BasketBus: CONNECTION_STRING (NAME OF RABBITMQ CONTAINER OR Endpoint=sb://XXXX in case of using Azure)

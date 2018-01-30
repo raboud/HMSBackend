@@ -1,10 +1,10 @@
 ﻿using System;
 using SlideOverKit;
 using Xamarin.Forms;
-using eShopOnContainers.Core.ViewModels.Base;
-using eShopOnContainers.Core.ViewModels;
+using HMS.Core.ViewModels.Base;
+using HMS.Core.ViewModels;
 
-namespace eShopOnContainers.Core.Views
+namespace HMS.Core.Views
 {
     public partial class CatalogView : ContentPage, IMenuContainerPage
     {

@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   basket.api:
-    image: eshop/basket.api-win:${TAG:-latest}
+    image: hms/basket.api-win:${TAG:-latest}
     build:
       context: .
       dockerfile: src/Services/Basket/Basket.API/Dockerfile
@@ -12,7 +12,7 @@ services:
       - rabbitmq
 
   catalog.api:
-    image: eshop/catalog.api-win:${TAG:-latest}
+    image: hms/catalog.api-win:${TAG:-latest}
     build:
       context: .
       dockerfile: src/Services/Catalog/Catalog.API/Dockerfile
@@ -21,7 +21,7 @@ services:
       - rabbitmq
 
   identity.api:
-    image: eshop/identity.api-win:${TAG:-latest}
+    image: hms/identity.api-win:${TAG:-latest}
     build:
       context: .
       dockerfile: src/Services/Identity/Identity.API/Dockerfile
@@ -29,7 +29,7 @@ services:
       - sql.data
 
   ordering.api:
-    image: eshop/ordering.api-win:${TAG:-latest}
+    image: hms/ordering.api-win:${TAG:-latest}
     build:
       context: .
       dockerfile: src/Services/Ordering/Ordering.API/Dockerfile
@@ -38,7 +38,7 @@ services:
       - rabbitmq
 
   marketing.api:
-    image: eshop/marketing.api-win:${TAG:-latest}
+    image: hms/marketing.api-win:${TAG:-latest}
     build:
       context: .
       dockerfile: src/Services/Marketing/Marketing.API/Dockerfile    
@@ -49,7 +49,7 @@ services:
       - rabbitmq
 
   webspa:
-    image: eshop/webspa-win:${TAG:-latest}
+    image: hms/webspa-win:${TAG:-latest}
     build:
       context: .
       dockerfile: src/Web/WebSPA/Dockerfile
@@ -61,7 +61,7 @@ services:
       - marketing.api
 
   webmvc:
-    image: eshop/webmvc-win:${TAG:-latest}
+    image: hms/webmvc-win:${TAG:-latest}
     build:
       context: .
       dockerfile: src/Web/WebMVC/Dockerfile
@@ -73,13 +73,13 @@ services:
       - marketing.api
   
   webstatus:
-    image: eshop/webstatus-win:${TAG:-latest}
+    image: hms/webstatus-win:${TAG:-latest}
     build:
       context: .
       dockerfile: src/Web/WebStatus/Dockerfile
 
   payment.api:
-    image: eshop/payment.api-win:${TAG:-latest}
+    image: hms/payment.api-win:${TAG:-latest}
     build:
       context: .
       dockerfile: src/Services/Payment/Payment.API/Dockerfile
@@ -87,7 +87,7 @@ services:
       - rabbitmq
 
   locations.api:
-    image: eshop/locations.api-win:${TAG:-latest}
+    image: hms/locations.api-win:${TAG:-latest}
     build:
       context: .
       dockerfile: src/Services/Location/Locations.API/Dockerfile

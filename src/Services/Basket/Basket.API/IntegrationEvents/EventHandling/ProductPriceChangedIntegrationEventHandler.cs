@@ -1,4 +1,4 @@
-﻿using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions;
+﻿using Microsoft.BuildingBlocks.EventBus.Abstractions;
 using BasketAPI.IntegrationEvents.Events;
 using BasketAPI.Model;
 using System;

@@ -8,7 +8,7 @@ using Android.Graphics.Drawables.Shapes;
 using Android.Util;
 using Android.Graphics;
 
-namespace eShopOnContainers.Droid.Renderers
+namespace HMSBackend.Droid.Renderers
 {
     public class BadgeView : TextView
     {

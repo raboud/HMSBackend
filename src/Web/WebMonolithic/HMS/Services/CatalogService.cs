@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.eShopWeb.Models;
+using HMSWeb.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using Microsoft.eShopWeb.Infrastructure;
-using Microsoft.eShopWeb.ViewModels;
+using HMSWeb.Infrastructure;
+using HMSWeb.ViewModels;
 
-namespace Microsoft.eShopWeb.Services
+namespace HMSWeb.Services
 {
     public class CatalogService : ICatalogService
     {

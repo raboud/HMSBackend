@@ -20,7 +20,7 @@ or using AKS instead of ACS
 * Upload the `kubernetes config file` to the blob storage previously created. Execute the following command which will download the config file into the directory `c:\Users\<User>\.kube\` and then, upload it to your blob storage: 
 
 >```
->https://eshopk8s.blob.core.windows.net/k8s-config/config
+>https://hmsk8s.blob.core.windows.net/k8s-config/config
 >```
 
 ## Create the VSTS tasks
@@ -35,7 +35,7 @@ or using AKS instead of ACS
 2. Create a Download File task to download the kubernetes config file to the hosted agent. For example:
 
 >```
->https://eshopk8s.blob.core.windows.net/k8s-config/config
+>https://hmsk8s.blob.core.windows.net/k8s-config/config
 >```
 <img src="./img/k8s/get_kubectlconfig_task.png">
 

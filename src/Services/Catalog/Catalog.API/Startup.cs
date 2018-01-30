@@ -11,12 +11,12 @@ namespace HMS.Catalog.API
     using Microsoft.Azure.ServiceBus;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Diagnostics;
-    using Microsoft.eShopOnContainers.BuildingBlocks.EventBus;
-    using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions;
-    using Microsoft.eShopOnContainers.BuildingBlocks.EventBusRabbitMQ;
-    using Microsoft.eShopOnContainers.BuildingBlocks.EventBusServiceBus;
-    using Microsoft.eShopOnContainers.BuildingBlocks.IntegrationEventLogEF;
-    using Microsoft.eShopOnContainers.BuildingBlocks.IntegrationEventLogEF.Services;
+    using Microsoft.BuildingBlocks.EventBus;
+    using Microsoft.BuildingBlocks.EventBus.Abstractions;
+    using Microsoft.BuildingBlocks.EventBusRabbitMQ;
+    using Microsoft.BuildingBlocks.EventBusServiceBus;
+    using Microsoft.BuildingBlocks.IntegrationEventLogEF;
+    using Microsoft.BuildingBlocks.IntegrationEventLogEF.Services;
     using HMS.Catalog.API.Infrastructure;
     using HMS.Catalog.API.IntegrationEvents.EventHandling;
     using HMS.Catalog.API.IntegrationEvents.Events;
@@ -111,7 +111,7 @@ namespace HMS.Catalog.API
                 options.DescribeAllEnumsAsStrings();
                 options.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info
                 {
-                    Title = "eShopOnContainers - Catalog HTTP API",
+                    Title = "HMSBackend - Catalog HTTP API",
                     Version = "v1",
                     Description = "The Catalog Microservice HTTP API. This is a Data-Driven/CRUD microservice sample",
                     TermsOfService = "Terms Of Service"

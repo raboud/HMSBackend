@@ -1,12 +1,12 @@
 ﻿using System.Threading.Tasks;
-using eShopOnContainers.Core.ViewModels.Base;
+using HMS.Core.ViewModels.Base;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
-using eShopOnContainers.Core.Models.Catalog;
-using eShopOnContainers.Core.Services.Catalog;
+using HMS.Core.Models.Catalog;
+using HMS.Core.Services.Catalog;
 using System.Windows.Input;
 
-namespace eShopOnContainers.Core.ViewModels
+namespace HMS.Core.ViewModels
 {
     public class CatalogViewModel : ViewModelBase
     {

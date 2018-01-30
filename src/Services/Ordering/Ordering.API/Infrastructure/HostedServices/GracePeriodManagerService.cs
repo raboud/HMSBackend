@@ -1,7 +1,7 @@
 ﻿namespace Ordering.API.Infrastructure.HostedServices
 {
     using Dapper;
-    using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions;
+    using Microsoft.BuildingBlocks.EventBus.Abstractions;
     using Ordering.API;
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Options;

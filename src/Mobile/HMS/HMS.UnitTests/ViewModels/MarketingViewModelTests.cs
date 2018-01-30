@@ -1,4 +1,4 @@
-﻿namespace eShopOnContainers.UnitTests.ViewModels
+﻿namespace HMS.UnitTests.ViewModels
 {
     using System.Threading.Tasks;
     using Xunit;

@@ -4,7 +4,7 @@ using Android.OS;
 using Android.Runtime;
 using Plugin.CurrentActivity;
 
-namespace eShopOnContainers.Droid
+namespace HMSBackend.Droid
 {
     [Application]
     public class MainApplication : Application, Application.IActivityLifecycleCallbacks

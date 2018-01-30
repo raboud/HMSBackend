@@ -1,8 +1,8 @@
 ﻿using System;
-using eShopOnContainers.Core.Models.User;
+using HMS.Core.Models.User;
 using System.Threading.Tasks;
 
-namespace eShopOnContainers.Core.Services.User
+namespace HMS.Core.Services.User
 {
     public class UserMockService : IUserService
     {
@@ -12,7 +12,7 @@ namespace eShopOnContainers.Core.Services.User
             Name = "Jhon",
             LastName = "Doe",
             PreferredUsername = "Jdoe",
-            Email = "jdoe@eshop.com",
+            Email = "jdoe@hms.com",
             EmailVerified = true,
             PhoneNumber = "202-555-0165",
             PhoneNumberVerified = true,

@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopOnContainers.Droid", "eShopOnContainers\eShopOnContainers.Droid\eShopOnContainers.Droid.csproj", "{62DBB163-9CA9-4818-B48B-13233DF37C24}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMS.Droid", "HMS\HMS.Droid\HMS.Droid.csproj", "{62DBB163-9CA9-4818-B48B-13233DF37C24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopOnContainers.iOS", "eShopOnContainers\eShopOnContainers.iOS\eShopOnContainers.iOS.csproj", "{6EEB23DC-7063-4444-9AF8-90DF24F549C0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMS.iOS", "HMS\HMS.iOS\HMS.iOS.csproj", "{6EEB23DC-7063-4444-9AF8-90DF24F549C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopOnContainers.Core", "eShopOnContainers\eShopOnContainers.Core\eShopOnContainers.Core.csproj", "{65116D1C-145B-4693-ABDA-F0FB6F425191}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMS.Core", "HMS\HMS.Core\HMS.Core.csproj", "{65116D1C-145B-4693-ABDA-F0FB6F425191}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopOnContainers.Windows", "eShopOnContainers\eShopOnContainers.Windows\eShopOnContainers.Windows.csproj", "{C3C1E2CF-B1F7-4654-BBDC-50143DB22E0B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMS.Windows", "HMS\HMS.Windows\HMS.Windows.csproj", "{C3C1E2CF-B1F7-4654-BBDC-50143DB22E0B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared Code", "Shared Code", "{65D002E7-E869-491C-ABA8-9650CEAF677A}"
 EndProject
@@ -17,15 +17,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Targets", "Targets", "{8F84
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{71D6317D-AF0F-46FE-91DA-B0556911FC4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopOnContainers.UnitTests", "eShopOnContainers\eShopOnContainers.UnitTests\eShopOnContainers.UnitTests.csproj", "{F7B6A162-BC4D-4924-B16A-713F9B0344E7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMS.UnitTests", "HMS\HMS.UnitTests\HMS.UnitTests.csproj", "{F7B6A162-BC4D-4924-B16A-713F9B0344E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopOnContainers.TestRunner.Droid", "eShopOnContainers\eShopOnContainers.TestRunner.Droid\eShopOnContainers.TestRunner.Droid.csproj", "{A289A7F0-ACD8-42AE-87B6-AB1AFD310BF1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMS.TestRunner.Droid", "HMS\HMS.TestRunner.Droid\HMS.TestRunner.Droid.csproj", "{A289A7F0-ACD8-42AE-87B6-AB1AFD310BF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopOnContainers.TestRunner.iOS", "eShopOnContainers\eShopOnContainers.TestRunner.iOS\eShopOnContainers.TestRunner.iOS.csproj", "{B68C2B56-7581-46AE-B55D-D25DDFD3BFE3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMS.TestRunner.iOS", "HMS\HMS.TestRunner.iOS\HMS.TestRunner.iOS.csproj", "{B68C2B56-7581-46AE-B55D-D25DDFD3BFE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopOnContainers.TestRunner.Windows", "eShopOnContainers\eShopOnContainers.TestRunner.Windows\eShopOnContainers.TestRunner.Windows.csproj", "{02680C26-CA1D-4D9D-A7E3-D66AF5BE6F2F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMS.TestRunner.Windows", "HMS\HMS.TestRunner.Windows\HMS.TestRunner.Windows.csproj", "{02680C26-CA1D-4D9D-A7E3-D66AF5BE6F2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopOnContainers.UITests", "eShopOnContainers\eShopOnContainers.UITests\eShopOnContainers.UITests.csproj", "{E3B18084-842C-4B80-8E4A-A7E588EC3137}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMS.UITests", "HMS\HMS.UITests\HMS.UITests.csproj", "{E3B18084-842C-4B80-8E4A-A7E588EC3137}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

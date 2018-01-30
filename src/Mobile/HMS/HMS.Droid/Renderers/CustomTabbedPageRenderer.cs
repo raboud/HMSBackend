@@ -7,14 +7,14 @@ using Android.Support.Design.Widget;
 using Android.Views;
 using Android.Widget;
 using Xamarin.Forms.Platform.Android;
-using eShopOnContainers.Droid.Extensions;
-using eShopOnContainers.Core.Controls;
-using eShopOnContainers.Droid.Renderers;
+using HMSBackend.Droid.Extensions;
+using HMSBackend.Core.Controls;
+using HMSBackend.Droid.Renderers;
 using Android.Support.V4.View;
 using Android.Graphics;
 
 [assembly: ExportRenderer(typeof(TabbedPage), typeof(CustomTabbedPageRenderer))]
-namespace eShopOnContainers.Droid.Renderers
+namespace HMSBackend.Droid.Renderers
 {
     public class CustomTabbedPageRenderer : TabbedPageRenderer
     {

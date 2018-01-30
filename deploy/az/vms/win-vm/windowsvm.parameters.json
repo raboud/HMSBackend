@@ -1,7 +1,7 @@
 {
-  "newStorageAccountName": { "value": "eshopsrvmvstoragewin" },
-  "adminUsername": { "value": "eshop" },
+  "newStorageAccountName": { "value": "hmssrvmvstoragewin" },
+  "adminUsername": { "value": "hms" },
   "adminPassword": { "value": "Pass@word" },
-  "dnsNameForPublicIP": { "value": "eshop-srv-win" },
-  "VMName": {"value": "eshop-srv-win"}
+  "dnsNameForPublicIP": { "value": "hms-srv-win" },
+  "VMName": {"value": "hms-srv-win"}
 }

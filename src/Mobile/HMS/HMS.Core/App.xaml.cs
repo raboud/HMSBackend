@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Globalization;
-using eShopOnContainers.Core.Helpers;
-using eShopOnContainers.Services;
-using eShopOnContainers.Core.ViewModels.Base;
+using HMS.Core.Helpers;
+using HMS.Services;
+using HMS.Core.ViewModels.Base;
 using System.Threading.Tasks;
-using eShopOnContainers.Core.Models.Location;
-using eShopOnContainers.Core.Services.Location;
+using HMS.Core.Models.Location;
+using HMS.Core.Services.Location;
 using Plugin.Geolocator;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
-namespace eShopOnContainers
+namespace HMS
 {
     public partial class App : Application
     {

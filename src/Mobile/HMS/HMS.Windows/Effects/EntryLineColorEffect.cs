@@ -7,12 +7,12 @@ using Media = Windows.UI.Xaml.Media;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.UWP;
 using Windows.UI.Xaml.Controls;
-using eShopOnContainers.Windows.Effects;
-using eShopOnContainers.Core.Behaviors;
+using HMS.Windows.Effects;
+using HMS.Core.Behaviors;
 
-[assembly: ResolutionGroupName("eShopOnContainers")]
+[assembly: ResolutionGroupName("HMS")]
 [assembly: ExportEffect(typeof(EntryLineColorEffect), "EntryLineColorEffect")]
-namespace eShopOnContainers.Windows.Effects
+namespace HMS.Windows.Effects
 {
     public class EntryLineColorEffect : PlatformEffect
     {

@@ -1,14 +1,15 @@
-﻿namespace FunctionalTests.Services.Locations
-{
-    using Microsoft.AspNetCore.Builder;
-    using Microsoft.AspNetCore.Hosting;
-    using Microsoft.AspNetCore.Http;
-    using Microsoft.eShopOnContainers.Services.Locations.API;
-    using Microsoft.Extensions.Configuration;
-    using System.Security.Claims;
-    using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using Locations.API;
 
-    public class LocationsTestsStartup : Startup
+namespace FunctionalTests.Services.Locations
+{
+
+	public class LocationsTestsStartup : Startup
     {
         public LocationsTestsStartup(IConfiguration configuration) : base(configuration)
         {
@@ -37,7 +38,7 @@
 
             public async Task Invoke(HttpContext httpContext)
             {
-                var identity = new ClaimsIdentity("cookies");
+				ClaimsIdentity identity = new ClaimsIdentity("cookies");
                 identity.AddClaim(new Claim("sub", "4611ce3f-380d-4db5-8d76-87a8689058ed"));
                 httpContext.User.AddIdentity(identity);
 

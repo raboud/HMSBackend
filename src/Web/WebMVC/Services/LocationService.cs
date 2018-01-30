@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
-using Microsoft.eShopOnContainers.BuildingBlocks.Resilience.Http;
-using Microsoft.eShopOnContainers.WebMVC;
-using Microsoft.eShopOnContainers.WebMVC.Services;
+using Microsoft.BuildingBlocks.Resilience.Http;
+using Microsoft.WebMVC;
+using Microsoft.WebMVC.Services;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;

@@ -1,4 +1,4 @@
-namespace Microsoft.eShopOnContainers.WebMVC.Controllers
+namespace Microsoft.WebMVC.Controllers
 {
     using AspNetCore.Authorization;
     using AspNetCore.Mvc;

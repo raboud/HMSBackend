@@ -1,4 +1,4 @@
-﻿namespace Microsoft.eShopWeb.Models
+﻿namespace HMSWeb.Models
 {
     using System;
     using System.Collections.Generic;

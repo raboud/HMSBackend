@@ -1,4 +1,4 @@
-# eShopOnContainers - BRANCH GUIDE
+# HMS - BRANCH GUIDE
 
 Following are the most important branches:
 

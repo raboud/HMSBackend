@@ -1,22 +1,19 @@
-﻿using Microsoft.eShopOnContainers.Services.Ordering.API.Application.Commands;
-using Microsoft.eShopOnContainers.Services.Ordering.API.Infrastructure.Services;
-using Microsoft.eShopOnContainers.Services.Ordering.Domain.AggregatesModel.BuyerAggregate;
-using Microsoft.eShopOnContainers.Services.Ordering.Domain.AggregatesModel.OrderAggregate;
-using Moq;
+﻿using Moq;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-
+using Ordering.API.Application.Commands;
+using Ordering.API.Application.Models;
+using Ordering.API.Infrastructure.Services;
+using Ordering.Domain.AggregatesModel.BuyerAggregate;
+using Ordering.Domain.AggregatesModel.OrderAggregate;
+using MediatR;
+using System.Collections;
+using System.Collections.Generic;
+using Xunit;
 
 namespace UnitTest.Ordering.Application
 {
-    using global::Ordering.API.Application.Models;
-    using MediatR;
-    using System.Collections;
-    using System.Collections.Generic;
-    using Xunit;
-    using static Microsoft.eShopOnContainers.Services.Ordering.API.Application.Commands.CreateOrderCommand;
-
     public class NewOrderRequestHandlerTest
     {
         private readonly Mock<IOrderRepository> _orderRepositoryMock;
@@ -34,9 +31,9 @@ namespace UnitTest.Ordering.Application
         [Fact]
         public async Task Handle_return_false_if_order_is_not_persisted()
         {
-            var buyerId = "1234";
+			string buyerId = "1234";
 
-            var fakeOrderCmd = FakeOrderRequestWithBuyer(new Dictionary<string, object>
+			CreateOrderCommand fakeOrderCmd = FakeOrderRequestWithBuyer(new Dictionary<string, object>
             { ["cardExpiration"] = DateTime.Now.AddYears(1) });
 
             _orderRepositoryMock.Setup(orderRepo => orderRepo.GetAsync(It.IsAny<int>()))
@@ -47,10 +44,10 @@ namespace UnitTest.Ordering.Application
 
             _identityServiceMock.Setup(svc => svc.GetUserIdentity()).Returns(buyerId);
 
-            //Act
-            var handler = new CreateOrderCommandHandler(_mediator.Object, _orderRepositoryMock.Object, _identityServiceMock.Object);
-            var cltToken = new System.Threading.CancellationToken();
-            var result = await handler.Handle(fakeOrderCmd, cltToken);
+			//Act
+			CreateOrderCommandHandler handler = new CreateOrderCommandHandler(_mediator.Object, _orderRepositoryMock.Object, _identityServiceMock.Object);
+			CancellationToken cltToken = new System.Threading.CancellationToken();
+			bool result = await handler.Handle(fakeOrderCmd, cltToken);
 
             //Assert
             Assert.False(result);

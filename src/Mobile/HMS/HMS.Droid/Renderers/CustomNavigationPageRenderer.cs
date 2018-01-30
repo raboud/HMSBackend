@@ -1,10 +1,10 @@
 using Android.Widget;
-using eShopOnContainers.Droid.Renderers;
+using HMSBackend.Droid.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android.AppCompat;
 
 [assembly: ExportRenderer(typeof(NavigationPage), typeof(CustomNavigationPageRenderer))]
-namespace eShopOnContainers.Droid.Renderers
+namespace HMSBackend.Droid.Renderers
 {
     public class CustomNavigationPageRenderer : NavigationPageRenderer
     {

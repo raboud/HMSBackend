@@ -1,5 +1,5 @@
 ﻿using Basket.API.IntegrationEvents.Events;
-using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions;
+using Microsoft.BuildingBlocks.EventBus.Abstractions;
 using BasketAPI.Model;
 using System;
 using System.Threading.Tasks;

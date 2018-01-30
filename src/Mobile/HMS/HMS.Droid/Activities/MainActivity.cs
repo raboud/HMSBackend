@@ -11,10 +11,10 @@ using FFImageLoading;
 using System;
 using Plugin.Permissions;
 
-namespace eShopOnContainers.Droid.Activities
+namespace HMSBackend.Droid.Activities
 {
     [Activity(
-        Label = "eShopOnContainers",
+        Label = "HMS",
         Icon = "@drawable/icon",
         Theme = "@style/MainTheme",
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
@@ -34,7 +34,7 @@ namespace eShopOnContainers.Droid.Activities
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             UserDialogs.Init(this);
-            CachedImageRenderer.Init();
+            CachedImageRenderer.Init(false);
             LoadApplication(new App());
 
             Window window = this.Window;

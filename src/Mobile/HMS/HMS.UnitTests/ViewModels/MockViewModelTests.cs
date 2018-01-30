@@ -1,7 +1,7 @@
 ﻿using Xunit;
-using eShopOnContainers.Core.ViewModels.Base;
+using HMS.Core.ViewModels.Base;
 
-namespace eShopOnContainers.UnitTests
+namespace HMS.UnitTests
 {
 	public class MockViewModelTests
 	{

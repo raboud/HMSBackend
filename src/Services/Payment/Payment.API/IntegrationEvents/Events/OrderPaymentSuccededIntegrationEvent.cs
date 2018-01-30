@@ -1,6 +1,6 @@
 ﻿namespace Payment.API.IntegrationEvents.Events
 {
-    using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Events;
+    using Microsoft.BuildingBlocks.EventBus.Events;
 
     public class OrderPaymentSuccededIntegrationEvent : IntegrationEvent
     {

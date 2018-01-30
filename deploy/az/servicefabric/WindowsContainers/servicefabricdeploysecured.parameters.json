@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "clusterName": {
-            "value": "pro-eshop-sfwin-cluster"
+            "value": "pro-hms-sfwin-cluster"
         },
         "clusterLocation": {
             "value": "westus"
@@ -12,34 +12,34 @@
             "value": "westus"
         },
         "adminUserName": {
-            "value": "eshop"
+            "value": "hms"
         },
         "adminPassword": {
             "value": "Your_complex_Pass@word1"
         },
         "nicName": {
-            "value": "NIC-eshopsfwin"
+            "value": "NIC-hmssfwin"
         },
         "publicIPAddressName": {
-            "value": "eshopsfwin-PubIP"
+            "value": "hmssfwin-PubIP"
         },
         "dnsName": {
-            "value": "pro-eshop-sfwin-cluster"
+            "value": "pro-hms-sfwin-cluster"
         },
         "virtualNetworkName": {
-            "value": "VNet-eshopsfwin"
+            "value": "VNet-hmssfwin"
         },
         "lbName": {
-            "value": "LB-eshopsfwin"
+            "value": "LB-hmssfwin"
         },
         "lbIPName": {
-            "value": "LBIP-eshopsfwin"
+            "value": "LBIP-hmssfwin"
         },
         "applicationDiagnosticsStorageAccountName": {
-            "value": "sfdgqaeshopsfwinsec"
+            "value": "sfdgqahmssfwinsec"
         },
         "supportLogStorageAccountName": {
-            "value": "sflogsqaeshopsfwinsec"
+            "value": "sflogsqahmssfwinsec"
         },
         "sourceVaultValue": {
             "value": "your-value-check-keyvault-at-azure"

@@ -1,6 +1,6 @@
 ﻿namespace Locations.API.Infrastructure.Services
 {
-    using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions;
+    using Microsoft.BuildingBlocks.EventBus.Abstractions;
     using Locations.API.Infrastructure.Exceptions;
     using Locations.API.Infrastructure.Repositories;
     using Locations.API.IntegrationEvents.Events;

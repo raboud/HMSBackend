@@ -11,7 +11,7 @@ Param(
     [parameter(Mandatory=$false)][bool]$buildImages=$true,
     [parameter(Mandatory=$false)][bool]$buildBits=$false,
     [parameter(Mandatory=$false)][bool]$deployInfrastructure=$true,
-    [parameter(Mandatory=$false)][string]$dockerOrg="eshop"
+    [parameter(Mandatory=$false)][string]$dockerOrg="hms"
 )
 
 function ExecKube($cmd) {    
@@ -53,8 +53,8 @@ Write-Host "Docker image Tag: $imageTag" -ForegroundColor Yellow
 
 # building and publishing docker images if needed
 if($buildBits) {
-    Write-Host "Building and publishing eShopOnContainers..." -ForegroundColor Yellow
-    dotnet publish -c Release -o obj/Docker/publish ../eShopOnContainers-ServicesAndWebApps.sln
+    Write-Host "Building and publishing HMSBackend..." -ForegroundColor Yellow
+    dotnet publish -c Release -o obj/Docker/publish ../hms-ServicesAndWebApps.sln
 }
 if ($buildImages) {
     Write-Host "Building Docker images tagged with '$imageTag'" -ForegroundColor Yellow
@@ -66,7 +66,7 @@ if ($buildImages) {
 
     foreach ($service in $services) {
         $imageFqdn = if ($useDockerHub)  {"$dockerOrg/${service}"} else {"$registry/$dockerOrg/${service}"}
-        docker tag eshop/${service}:$imageTag ${imageFqdn}:$imageTag
+        docker tag HMS/${service}:$imageTag ${imageFqdn}:$imageTag
         docker push ${imageFqdn}:$imageTag            
     }
 }
@@ -106,7 +106,7 @@ ExecKube -cmd 'delete configmap externalcfg'
 
 # start sql, rabbitmq, frontend deployments
 ExecKube -cmd 'create configmap config-files --from-file=nginx-conf=nginx.conf'
-ExecKube -cmd 'label configmap config-files app=eshop'
+ExecKube -cmd 'label configmap config-files app=hms'
 
 if ($deployInfrastructure) {
     Write-Host 'Deploying infrastructure deployments (databases, redis, RabbitMQ...)' -ForegroundColor Yellow
@@ -165,7 +165,7 @@ ExecKube -cmd 'create configmap urls `
     --from-literal=PaymentHealthCheckUrl=http://payment/hc'
 	
 
-ExecKube -cmd 'label configmap urls app=eshop'
+ExecKube -cmd 'label configmap urls app=hms'
 
 Write-Host "Deploying configuration from $configFile" -ForegroundColor Yellow
 

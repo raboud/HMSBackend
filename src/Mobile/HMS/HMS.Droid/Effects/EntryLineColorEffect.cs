@@ -1,15 +1,15 @@
 using Xamarin.Forms;
-using eShopOnContainers.Droid.Effects;
+using HMSBackend.Droid.Effects;
 using Xamarin.Forms.Platform.Android;
 using System;
 using Android.Widget;
-using eShopOnContainers.Core.Behaviors;
+using HMSBackend.Core.Behaviors;
 using System.ComponentModel;
 using System.Diagnostics;
 
-[assembly: ResolutionGroupName("eShopOnContainers")]
+[assembly: ResolutionGroupName("HMS")]
 [assembly: ExportEffect(typeof(EntryLineColorEffect), "EntryLineColorEffect")]
-namespace eShopOnContainers.Droid.Effects
+namespace HMSBackend.Droid.Effects
 {
     public class EntryLineColorEffect : PlatformEffect
     {

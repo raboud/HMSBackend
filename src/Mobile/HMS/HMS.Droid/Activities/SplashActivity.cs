@@ -4,10 +4,10 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Support.V7.App;
 
-namespace eShopOnContainers.Droid.Activities
+namespace HMSBackend.Droid.Activities
 {
     [Activity(
-         Label = "eShopOnContainers",
+         Label = "HMS",
          Icon = "@drawable/icon",
          Theme = "@style/Theme.Splash",
          NoHistory = true,

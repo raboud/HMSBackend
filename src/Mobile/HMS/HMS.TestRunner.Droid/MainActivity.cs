@@ -3,9 +3,9 @@ using Android.OS;
 using Xunit.Runners.UI;
 using Xunit.Sdk;
 
-namespace eShopOnContainers.TestRunner.Droid
+namespace HMSBackend.TestRunner.Droid
 {
-    [Activity(Label = "eShopOnContainers.TestRunner.Droid", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "HMSBackend.TestRunner.Droid", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : RunnerActivity
     {
         protected override void OnCreate(Bundle bundle)

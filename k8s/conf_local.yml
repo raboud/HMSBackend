@@ -3,23 +3,23 @@ kind: ConfigMap
 metadata:
   name: externalcfg
   labels:
-    app: eshop  
+    app: hms  
 data:
   BasketBus: rabbitmq
   BasketRedisConStr: basket-data
   CatalogBus: rabbitmq
-  CatalogSqlDb: Server=sql-data;Initial Catalog=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word;
+  CatalogSqlDb: Server=sql-data;Initial Catalog=CatalogDb;User Id=sa;Password=Pass@word;
   CatalogAzureStorageEnabled: "False"
-  IdentitySqlDb: Server=sql-data;Initial Catalog=Microsoft.eShopOnContainers.Services.IdentityDb;User Id=sa;Password=Pass@word;
+  IdentitySqlDb: Server=sql-data;Initial Catalog=IdentityDb;User Id=sa;Password=Pass@word;
   LocationsBus: rabbitmq
   LocationsNoSqlDb: mongodb://nosql-data
   LocationsNoSqlDbName: LocationsDb
   MarketingBus: rabbitmq
   MarketingNoSqlDb: mongodb://nosql-data
   MarketingNoSqlDbName: MarketingDb
-  MarketingSqlDb: Server=sql-data;Initial Catalog=Microsoft.eShopOnContainers.Services.MarketingDb;User Id=sa;Password=Pass@word;
+  MarketingSqlDb: Server=sql-data;Initial Catalog=MarketingDb;User Id=sa;Password=Pass@word;
   OrderingBus: rabbitmq
-  OrderingSqlDb: Server=sql-data;Initial Catalog=Microsoft.eShopOnContainers.Services.OrderingDb;User Id=sa;Password=Pass@word;
+  OrderingSqlDb: Server=sql-data;Initial Catalog=OrderingDb;User Id=sa;Password=Pass@word;
   PaymentBus: rabbitmq
   UseAzureServiceBus: "False"
   EnableLoadTest: "False"

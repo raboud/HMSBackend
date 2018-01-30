@@ -1,16 +1,16 @@
-$imagesToDelete = docker images --filter=reference="eshop/*" -q
+$imagesToDelete = docker images --filter=reference="HMS/*" -q
 
-If (-Not $imagesToDelete) {Write-Host "Not deleting eShop images as there are no eShop images in the current local Docker repo."} 
+If (-Not $imagesToDelete) {Write-Host "Not deleting HMS images as there are no HMS images in the current local Docker repo."} 
 Else 
 {
     # Delete all containers
     Write-Host "Deleting all containers in local Docker Host"
     docker rm $(docker ps -a -q) -f
     
-    # Delete all eshop images
-    Write-Host "Deleting eShop images in local Docker repo"
+    # Delete all HMS images
+    Write-Host "Deleting hms images in local Docker repo"
     Write-Host $imagesToDelete
-    docker rmi $(docker images --filter=reference="eshop/*" -q) -f
+    docker rmi $(docker images --filter=reference="HMS/*" -q) -f
 }
 
 
@@ -23,5 +23,5 @@ Else
 # docker rmi $(docker images -q)
 
 #Filter by image name (Has to be complete, cannot be a wildcard)
-#docker ps -q  --filter=ancestor=eshop/identity.api:dev
+#docker ps -q  --filter=ancestor=HMS/identity.api:dev
 

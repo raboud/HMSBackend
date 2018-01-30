@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Authentication;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.eShopOnContainers.WebMVC.Controllers;
+using Microsoft.WebMVC.Controllers;
 using Moq;
 using System.Security.Claims;
 using Xunit;

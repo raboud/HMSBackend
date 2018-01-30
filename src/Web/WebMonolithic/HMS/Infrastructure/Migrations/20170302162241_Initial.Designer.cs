@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Microsoft.eShopWeb.Infrastructure.Migrations
+namespace HMSWeb.Infrastructure.Migrations
 {
     [DbContext(typeof(CatalogContext))]
     [Migration("20170302162241_Initial")]
@@ -18,7 +18,7 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                 .HasAnnotation("SqlServer:Sequence:.catalog_type_hilo", "'catalog_type_hilo', '', '1', '10', '', '', 'Int64', 'False'")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("eShopWeb.Models.CatalogBrand", b =>
+            modelBuilder.Entity("HMSWeb.Models.CatalogBrand", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -34,7 +34,7 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                     b.ToTable("CatalogBrand");
                 });
 
-            modelBuilder.Entity("eShopWeb.Models.CatalogItem", b =>
+            modelBuilder.Entity("HMSWeb.Models.CatalogItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -64,7 +64,7 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                     b.ToTable("Catalog");
                 });
 
-            modelBuilder.Entity("eShopWeb.Models.CatalogType", b =>
+            modelBuilder.Entity("HMSWeb.Models.CatalogType", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -80,14 +80,14 @@ namespace Microsoft.eShopWeb.Infrastructure.Migrations
                     b.ToTable("CatalogType");
                 });
 
-            modelBuilder.Entity("eShopWeb.Models.CatalogItem", b =>
+            modelBuilder.Entity("HMSWeb.Models.CatalogItem", b =>
                 {
-                    b.HasOne("eShopWeb.Models.CatalogBrand", "CatalogBrand")
+                    b.HasOne("HMSWeb.Models.CatalogBrand", "CatalogBrand")
                         .WithMany()
                         .HasForeignKey("CatalogBrandId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("eShopWeb.Models.CatalogType", "CatalogType")
+                    b.HasOne("HMSWeb.Models.CatalogType", "CatalogType")
                         .WithMany()
                         .HasForeignKey("CatalogTypeId")
                         .OnDelete(DeleteBehavior.Cascade);

@@ -1,8 +1,8 @@
-# eShopOnContainers
+# HMSBackend
 
-eShopOnContainers is a reference app whose imagined purpose is to serve the mobile workforce of a fictitious company that sells products. The app allow to manage the catalog, view products, manage the basket and the orders.
+HMSBackend is a reference app whose imagined purpose is to serve the mobile workforce of a fictitious company that sells products. The app allow to manage the catalog, view products, manage the basket and the orders.
 
-<img src="Images/eShopOnContainers_Architecture_Diagram.png" alt="eShopOnContainers" Width="800" />
+<img src="Images/HMSBackend_Architecture_Diagram.png" alt="HMSBackend" Width="800" />
 
 ### Supported platforms: iOS, Android and Windows
 
@@ -10,7 +10,7 @@ eShopOnContainers is a reference app whose imagined purpose is to serve the mobi
   1. A Xamarin.Forms mobile app for iOS, Android and Windows.
   2. Several .NET Web API microservices deployed as Docker containers.
 
-### Xamarin.Forms App (eShopOnContainers)
+### Xamarin.Forms App (HMS)
 
 This project exercises the following platforms, frameworks or features:
 
@@ -43,7 +43,7 @@ The app targets **three** platforms:
     * UWP supported only in Visual Studio, not Xamarin Studio or Visual Studio for MacOS
 
 
-As of 07/03/2017, eShopOnContainers features **89.2% code share** (7.2% iOS / 16.7% Android / 8.7% Windows).
+As of 07/03/2017, HMS features **89.2% code share** (7.2% iOS / 16.7% Android / 8.7% Windows).
 
 ## Licenses
 
@@ -56,7 +56,7 @@ This project uses some third-party assets with a license that requires attributi
 - [SlideOverKit](https://github.com/XAM-Consulting/SlideOverKit): by XAM-Consulting
 
 ## Requirements
-### Requirements for March 2017 version of eShopOnContainers
+### Requirements for March 2017 version of HMS
 
 * [Visual Studio __2015__](https://www.visualstudio.com/en-us/products/vs-2015-product-editions.aspx) (14.0 or higher) to compile C# 6 langage features (or Visual Studio MacOS)
 * Xamarin add-ons for Visual Studio (available via the Visual Studio installer)

@@ -10,7 +10,7 @@
         }
     },
     "variables": {
-		"serviceBusTopicName": "eshop_event_bus",
+		"serviceBusTopicName": "hms_event_bus",
 		"BasketSubscriptionName": "Basket",
 		"CatalogSubscriptionName": "Catalog",
 		"OrderingSubscriptionName": "Ordering",

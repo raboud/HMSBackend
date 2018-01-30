@@ -1,4 +1,4 @@
-﻿namespace Microsoft.eShopWeb
+﻿namespace hmsWeb
 {
     public class CatalogSettings
     {

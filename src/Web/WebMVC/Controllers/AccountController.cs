@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
-namespace Microsoft.eShopOnContainers.WebMVC.Controllers
+namespace Microsoft.WebMVC.Controllers
 {
     [Authorize]
     public class AccountController : Controller

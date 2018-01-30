@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using Xamarin.Forms;
-using eShopOnContainers.Core.Effects;
+using HMS.Core.Effects;
 
-namespace eShopOnContainers.Core.Behaviors
+namespace HMS.Core.Behaviors
 {
     public static class LineColorBehavior
     {

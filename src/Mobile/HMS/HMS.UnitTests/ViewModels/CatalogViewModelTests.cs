@@ -1,12 +1,12 @@
 ﻿using Xunit;
-using eShopOnContainers.Core.ViewModels;
-using eShopOnContainers.Core.ViewModels.Base;
-using eShopOnContainers.Core.Services.Catalog;
-using eShopOnContainers.Core.Models.Catalog;
+using HMS.Core.ViewModels;
+using HMS.Core.ViewModels.Base;
+using HMS.Core.Services.Catalog;
+using HMS.Core.Models.Catalog;
 using System.Threading.Tasks;
 using System.Linq;
 
-namespace eShopOnContainers.UnitTests
+namespace HMS.UnitTests
 {
 	public class CatalogViewModelTests
 	{

@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions;
+using Microsoft.BuildingBlocks.EventBus.Abstractions;
 using Ordering.API.Application.Commands;
 using Ordering.API.Application.Queries;
 using Ordering.Domain.AggregatesModel.BuyerAggregate;

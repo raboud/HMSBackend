@@ -7,12 +7,12 @@ spec:
   template:
     metadata:
       labels:
-        app: eshop
+        app: hms
         component: basket
     spec:
       containers:
       - name: basket
-        image: eshop/basket.api
+        image: hms/basket.api
         imagePullPolicy: Always
         env:
         - name: PATH_BASE
@@ -77,12 +77,12 @@ spec:
   template:
     metadata:
       labels:
-        app: eshop
+        app: hms
         component: catalog
     spec:
       containers:
       - name: catalog
-        image: eshop/catalog.api
+        image: hms/catalog.api
         imagePullPolicy: Always
         env:
         - name: PATH_BASE
@@ -142,12 +142,12 @@ spec:
   template:
     metadata:
       labels:
-        app: eshop
+        app: hms
         component: identity
     spec:
       containers:
       - name: identity
-        image: eshop/identity.api
+        image: hms/identity.api
         imagePullPolicy: Always
         env:
         - name: PATH_BASE
@@ -229,12 +229,12 @@ spec:
   template:
     metadata:
       labels:
-        app: eshop
+        app: hms
         component: ordering
     spec:
       containers:
       - name: ordering
-        image: eshop/ordering.api
+        image: hms/ordering.api
         imagePullPolicy: Always
         env:
         - name: PATH_BASE
@@ -309,12 +309,12 @@ spec:
   template:
     metadata:
       labels:
-        app: eshop
+        app: hms
         component: locations
     spec:
       containers:
       - name: locations
-        image: eshop/locations.api
+        image: hms/locations.api
         imagePullPolicy: Always
         env:
         - name: PATH_BASE
@@ -389,12 +389,12 @@ spec:
   template:
     metadata:
       labels:
-        app: eshop
+        app: hms
         component: marketing
     spec:
       containers:
       - name: marketing
-        image: eshop/marketing.api
+        image: hms/marketing.api
         imagePullPolicy: Always
         env:
         - name: PATH_BASE
@@ -479,12 +479,12 @@ spec:
   template:
     metadata:
       labels:
-        app: eshop
+        app: hms
         component: payment
     spec:
       containers:
       - name: payment
-        image: eshop/payment.api
+        image: hms/payment.api
         imagePullPolicy: Always
         env:
         - name: PATH_BASE
@@ -534,12 +534,12 @@ spec:
   template:
     metadata:
       labels:
-        app: eshop
+        app: hms
         component: webmvc
     spec:
       containers:
       - name: webmvc
-        image: eshop/webmvc
+        image: hms/webmvc
         imagePullPolicy: Always
         env:
         - name: PATH_BASE
@@ -656,12 +656,12 @@ spec:
   template:
     metadata:
       labels:
-        app: eshop
+        app: hms
         component: webstatus
     spec:
       containers:
       - name: webstatus
-        image: eshop/webstatus
+        image: hms/webstatus
         imagePullPolicy: Always
         env:
         - name: PATH_BASE
@@ -732,12 +732,12 @@ spec:
   template:
     metadata:
       labels:
-        app: eshop
+        app: hms
         component: webspa
     spec:
       containers:
       - name: webspa
-        image: eshop/webspa
+        image: hms/webspa
         imagePullPolicy: Always
         env:
         - name: ASPNETCORE_URLS

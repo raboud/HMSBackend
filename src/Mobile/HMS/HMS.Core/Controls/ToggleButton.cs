@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace eShopOnContainers.Core.Controls
+namespace HMS.Core.Controls
 {
     public class ToggleButton : ContentView
     {

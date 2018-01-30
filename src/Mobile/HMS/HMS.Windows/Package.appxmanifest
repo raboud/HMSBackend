@@ -3,7 +3,7 @@
   <Identity Name="54687c57-08ec-4504-8060-f36bcb62ddcf" Publisher="CN=jsuarez" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="54687c57-08ec-4504-8060-f36bcb62ddcf" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>eShopOnContainers.UWP</DisplayName>
+    <DisplayName>HMSBackend.UWP</DisplayName>
     <PublisherDisplayName>jsuarez</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -14,9 +14,9 @@
     <Resource Language="x-generate" />
   </Resources>
   <Applications>
-    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="eShopOnContainers.UWP.App">
-      <uap:VisualElements DisplayName="eShopOnContainers" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="eShopOnContainers Xamarin UWP" BackgroundColor="#00A69C">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" ShortName="eShopOnContainers">
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="HMSBackend.UWP.App">
+      <uap:VisualElements DisplayName="HMSBackend" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="HMSBackend.Xamarin UWP" BackgroundColor="#00A69C">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" ShortName="HMS">
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#00A69C" />
       </uap:VisualElements>

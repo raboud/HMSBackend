@@ -1,5 +1,5 @@
 # This approach still has issues, but would be the simplest approach for this script
-# See: https://github.com/dotnet/eShopOnContainers/issues/74 
+# See: https://github.com/raboud/HMSBackend/issues/74 
 
 Param([string] $rootPath)
 $scriptPath = Split-Path $script:MyInvocation.MyCommand.Path
@@ -11,7 +11,7 @@ if ([string]::IsNullOrEmpty($rootPath)) {
 }
 Write-Host "Root path used is $rootPath" -ForegroundColor Yellow
 
-$SolutionFilePath = [IO.Path]::Combine($rootPath, "eShopOnContainers-ServicesAndWebApps.sln")
+$SolutionFilePath = [IO.Path]::Combine($rootPath, "hms-ServicesAndWebApps.sln")
 
 dotnet publish $SolutionFilePath -c Release -o .\obj\Docker\publish
 

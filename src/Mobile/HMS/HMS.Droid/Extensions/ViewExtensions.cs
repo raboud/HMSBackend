@@ -1,6 +1,6 @@
 using Android.Views;
 
-namespace eShopOnContainers.Droid.Extensions
+namespace HMSBackend.Droid.Extensions
 {
     internal static class ViewExtensions
     {

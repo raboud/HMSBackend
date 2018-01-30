@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.eShopOnContainers.BuildingBlocks.Resilience.Http;
-using Microsoft.eShopOnContainers.WebMVC.ViewModels;
+using Microsoft.BuildingBlocks.Resilience.Http;
+using Microsoft.WebMVC.ViewModels;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using WebMVC.Infrastructure;
 
-namespace Microsoft.eShopOnContainers.WebMVC.Services
+namespace Microsoft.WebMVC.Services
 {
     public class CatalogService : ICatalogService
     {
@@ -25,7 +25,7 @@ namespace Microsoft.eShopOnContainers.WebMVC.Services
             _apiClient = httpClient;
             _logger = logger;
 
-            _remoteServiceBaseUrl = $"{_settings.Value.CatalogUrl}/api/v1/catalog/";
+            _remoteServiceBaseUrl = $"{_settings.Value.CatalogUrl}/api/v1/";
         }
 
         public async Task<Catalog> GetCatalogItems(int page, int take, int? brand, int? type)

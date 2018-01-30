@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "eShopWeb": {
+    "HMSWeb": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

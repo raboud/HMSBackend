@@ -1,4 +1,4 @@
-﻿using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions;
+﻿using Microsoft.BuildingBlocks.EventBus.Abstractions;
 using Ordering.Domain.AggregatesModel.OrderAggregate;
 using Ordering.API.Application.IntegrationEvents.Events;
 using System.Threading.Tasks;

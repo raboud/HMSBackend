@@ -1,7 +1,7 @@
 ﻿{
   "dependencies": {
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
-    "Xamarin.Forms": "2.5.0.91635",
+    "Xamarin.Forms": "2.5.0.122203",
     "xunit.runner.devices": "2.1.0"
   },
   "frameworks": {

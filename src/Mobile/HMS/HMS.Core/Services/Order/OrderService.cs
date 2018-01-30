@@ -1,12 +1,12 @@
-﻿using eShopOnContainers.Core.Models.Basket;
-using eShopOnContainers.Core.Services.RequestProvider;
+﻿using HMS.Core.Models.Basket;
+using HMS.Core.Services.RequestProvider;
 using System;
 using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Threading.Tasks;
-using eShopOnContainers.Core.Models.Orders;
+using HMS.Core.Models.Orders;
 
-namespace eShopOnContainers.Core.Services.Order
+namespace HMS.Core.Services.Order
 {
     public class OrderService : IOrderService
     {

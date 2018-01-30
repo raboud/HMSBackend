@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
-using Microsoft.eShopOnContainers.BuildingBlocks.IntegrationEventLogEF;
-using Microsoft.eShopOnContainers.Services.Ordering.API;
-using Microsoft.eShopOnContainers.Services.Ordering.API.Infrastructure;
-using Microsoft.eShopOnContainers.Services.Ordering.Infrastructure;
+using Microsoft.BuildingBlocks.IntegrationEventLogEF;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.IO;
+using Ordering.Infrastructure;
+using Ordering.API;
+using Ordering.API.Infrastructure;
 
 namespace FunctionalTests.Services.Ordering
 {
@@ -17,7 +17,7 @@ namespace FunctionalTests.Services.Ordering
     {
         public TestServer CreateServer()
         {
-            var webHostBuilder = WebHost.CreateDefaultBuilder();
+			IWebHostBuilder webHostBuilder = WebHost.CreateDefaultBuilder();
             webHostBuilder.UseContentRoot(Directory.GetCurrentDirectory() + "\\Services\\Ordering");
             webHostBuilder.UseStartup<OrderingTestsStartup>();
             webHostBuilder.ConfigureAppConfiguration((builderContext, config) =>
@@ -25,14 +25,14 @@ namespace FunctionalTests.Services.Ordering
                  config.AddJsonFile("settings.json");
              });
 
-            var testServer = new TestServer(webHostBuilder);
+			TestServer testServer = new TestServer(webHostBuilder);
 
             testServer.Host
                 .MigrateDbContext<OrderingContext>((context, services) =>
                 {
-                    var env = services.GetService<IHostingEnvironment>();
-                    var settings = services.GetService<IOptions<OrderingSettings>>();
-                    var logger = services.GetService<ILogger<OrderingContextSeed>>();
+					IHostingEnvironment env = services.GetService<IHostingEnvironment>();
+					IOptions<OrderingSettings> settings = services.GetService<IOptions<OrderingSettings>>();
+					ILogger<OrderingContextSeed> logger = services.GetService<ILogger<OrderingContextSeed>>();
 
                     new OrderingContextSeed()
                         .SeedAsync(context, env, settings, logger)

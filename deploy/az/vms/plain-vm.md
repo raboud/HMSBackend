@@ -52,14 +52,14 @@ name of the resourcegroup where you created the VM). This command will generate 
 ```
 Name        ResourceGroup    PowerState    PublicIps      Fqdns                                             Location
 ----------  ---------------  ------------  -------------  ------------------------------------------------  ----------
-MyDockerVM  MyResourceGroup  VM running    xx.xx.xxx.xxx  eshop-srvxxxxxxxxxxxxx.westus.cloudapp.azure.com  westus
+MyDockerVM  MyResourceGroup  VM running    xx.xx.xxx.xxx  hms-srvxxxxxxxxxxxxx.westus.cloudapp.azure.com  westus
 ```
 
 You can use this information to connect your new VM.
 
 ## Deploy services in the VM
 
-We are providing public images of the services in DockerHub (https://hub.docker.com/u/eshop/). To use these images, just create a folder in the VM and copy
+We are providing public images of the services in DockerHub (https://hub.docker.com/u/hms/). To use these images, just create a folder in the VM and copy
 following files to it (those files are in the root of the repo):
 
 1. `docker-compose.nobuild.yml`

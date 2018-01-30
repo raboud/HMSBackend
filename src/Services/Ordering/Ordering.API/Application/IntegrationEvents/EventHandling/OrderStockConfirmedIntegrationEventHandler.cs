@@ -1,6 +1,6 @@
 ﻿namespace Ordering.API.Application.IntegrationEvents.EventHandling
 {
-    using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions;
+    using Microsoft.BuildingBlocks.EventBus.Abstractions;
     using System.Threading.Tasks;
     using Events;
     using Ordering.Domain.AggregatesModel.OrderAggregate;

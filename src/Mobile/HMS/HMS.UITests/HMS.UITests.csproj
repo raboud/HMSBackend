@@ -5,8 +5,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E3B18084-842C-4B80-8E4A-A7E588EC3137}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>eShopOnContainers.UITests</RootNamespace>
-    <AssemblyName>eShopOnContainers.UITests</AssemblyName>
+    <RootNamespace>HMS.UITests</RootNamespace>
+    <AssemblyName>HMS.UITests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

@@ -1,4 +1,4 @@
-﻿namespace eShopOnContainers.Core.Services.Location
+﻿namespace HMS.Core.Services.Location
 {
     using System;
     using System.Threading.Tasks;

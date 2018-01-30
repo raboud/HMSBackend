@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Microsoft.eShopOnContainers.BuildingBlocks.CommandBus
+namespace Microsoft.BuildingBlocks.CommandBus
 {
     public interface ICommandBus
     {

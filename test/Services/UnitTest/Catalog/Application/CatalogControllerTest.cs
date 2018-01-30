@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.eShopOnContainers.WebMVC.Controllers;
-using Microsoft.eShopOnContainers.WebMVC.Services;
-using Microsoft.eShopOnContainers.WebMVC.ViewModels;
-using Microsoft.eShopOnContainers.WebMVC.ViewModels.CatalogViewModels;
+using Microsoft.WebMVC.Controllers;
+using Microsoft.WebMVC.Services;
+using Microsoft.WebMVC.ViewModels;
+using Microsoft.WebMVC.ViewModels.CatalogViewModels;
 using Moq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
-using CatalogModel = Microsoft.eShopOnContainers.WebMVC.ViewModels.Catalog;
+using CatalogModel = Microsoft.WebMVC.ViewModels.Catalog;
 
 namespace UnitTest.Catalog.Application
 {

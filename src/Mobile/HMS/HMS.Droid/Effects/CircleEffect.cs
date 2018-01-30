@@ -1,11 +1,11 @@
 ﻿using System;
 using Xamarin.Forms;
-using eShopOnContainers.Droid.Effects;
+using HMSBackend.Droid.Effects;
 using Android.Views;
 using Android.Graphics;
 
 [assembly: ExportEffect(typeof(CircleEffect), "CircleEffect")]
-namespace eShopOnContainers.Droid.Effects
+namespace HMSBackend.Droid.Effects
 {
     public class CircleEffect : BaseContainerEffect
     {

@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "clusterName": {
-            "value": "qa-eshop-sfwin-cluster"
+            "value": "qa-hms-sfwin-cluster"
         },
         "clusterLocation": {
             "value": "westus"
@@ -12,34 +12,34 @@
             "value": "westus"
         },
         "adminUserName": {
-            "value": "eshop"
+            "value": "hms"
         },
         "adminPassword": {
             "value": "Your_complex_Pass@word1"
         },
         "nicName": {
-            "value": "NIC-eshopsfwin"
+            "value": "NIC-hmssfwin"
         },
         "publicIPAddressName": {
-            "value": "eshopsfwin-PubIP"
+            "value": "hmssfwin-PubIP"
         },
         "dnsName": {
-            "value": "qa-eshop-sfwin-cluster"
+            "value": "qa-hms-sfwin-cluster"
         },
         "virtualNetworkName": {
-            "value": "VNet-eshopsfwin"
+            "value": "VNet-hmssfwin"
         },
         "lbName": {
-            "value": "LB-eshopsfwin"
+            "value": "LB-hmssfwin"
         },
         "lbIPName": {
-            "value": "LBIP-eshopsfwin"
+            "value": "LBIP-hmssfwin"
         },
         "applicationDiagnosticsStorageAccountName": {
-            "value": "sfdgqaeshopsfwin"
+            "value": "sfdgqahmssfwin"
         },
         "supportLogStorageAccountName": {
-            "value": "sflogsqaeshopsfwin"
+            "value": "sflogsqahmssfwin"
         },
         "vmImageSku": {
             "value": "2016-Datacenter-with-Containers"

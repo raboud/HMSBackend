@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
-using eShopOnContainers.Core.ViewModels.Base;
-using eShopOnContainers.Core.Models.Navigation;
+using HMS.Core.ViewModels.Base;
+using HMS.Core.Models.Navigation;
 using Xamarin.Forms;
 using System.Windows.Input;
 
-namespace eShopOnContainers.Core.ViewModels
+namespace HMS.Core.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {

@@ -1,6 +1,6 @@
 # Xamarin iOS Build
 
-Follow these steps to create a VSTS build for your eShopOnContainers app (iOS)
+Follow these steps to create a VSTS build for your HMS app (iOS)
 
 **Note**: This document assumes basic knowledge about creating builds and configuring external VSTS connections 
 
@@ -20,7 +20,7 @@ Let's discuss each of them.
 
 Add a "Xamarin iOS" task with following configuration:
 
-1. `eShopOnContainers-iOS.sln` in "Solution". This solution has been created ex professo for the build.
+1. `HMS-iOS.sln` in "Solution". This solution has been created ex professo for the build.
 2. Ensure that the "Create App Package" checkbox is enabled
 
 **About signing & Provisioning section**
@@ -43,7 +43,7 @@ Once downloaded two files, you have to specify the location of both in the "Sign
 
 Add a "Copy files" task with following configuration:
 
-1. `src/Mobile/eShopOnContainers/eShopOnContainers.iOS/bin/iPhone/$(BuildConfiguration)` in "Source Folder"
+1. `src/Mobile/HMS/HMS.iOS/bin/iPhone/$(BuildConfiguration)` in "Source Folder"
 2. `**/*.ipa` in "Contents"
 3. `$(Build.ArtifactStagingDirectory)` in "Target Folder"
 4. Ensure that "Clean Target folder" (under "Advanced" section) is checked

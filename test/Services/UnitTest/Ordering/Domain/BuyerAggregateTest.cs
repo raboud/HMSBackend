@@ -1,4 +1,4 @@
-﻿using Microsoft.eShopOnContainers.Services.Ordering.Domain.AggregatesModel.BuyerAggregate;
+﻿using Ordering.Domain.AggregatesModel.BuyerAggregate;
 using Ordering.Domain.Exceptions;
 using System;
 using Xunit;
@@ -11,11 +11,11 @@ public class BuyerAggregateTest
     [Fact]
     public void Create_buyer_item_success()
     {
-        //Arrange    
-        var identity = new Guid().ToString();
+		//Arrange    
+		string identity = new Guid().ToString();
 
-        //Act 
-        var fakeBuyerItem = new Buyer(identity);
+		//Act 
+		Buyer fakeBuyerItem = new Buyer(identity);
 
         //Assert
         Assert.NotNull(fakeBuyerItem);
@@ -24,82 +24,82 @@ public class BuyerAggregateTest
     [Fact]
     public void Create_buyer_item_fail()
     {
-        //Arrange    
-        var identity = string.Empty;
+		//Arrange    
+		string identity = string.Empty;
 
         //Act - Assert
         Assert.Throws<ArgumentNullException>(() => new Buyer(identity));
     }
 
     [Fact]
-    public void add_payment_success()
-    {        
-        //Arrange    
-        var cardTypeId = 1;
-        var alias = "fakeAlias";
-        var cardNumber = "124";
-        var securityNumber = "1234";
-        var cardHolderName = "FakeHolderNAme";
-        var expiration = DateTime.Now.AddYears(1);
-        var orderId = 1;
-        var identity = new Guid().ToString();
-        var fakeBuyerItem = new Buyer(identity);
+    public void Add_payment_success()
+    {
+		//Arrange    
+		int cardTypeId = 1;
+		string alias = "fakeAlias";
+		string cardNumber = "124";
+		string securityNumber = "1234";
+		string cardHolderName = "FakeHolderNAme";
+		DateTime expiration = DateTime.Now.AddYears(1);
+		int orderId = 1;
+		string identity = new Guid().ToString();
+		Buyer fakeBuyerItem = new Buyer(identity);
 
-        //Act
-        var result = fakeBuyerItem.VerifyOrAddPaymentMethod(cardTypeId, alias, cardNumber, securityNumber, cardHolderName, expiration, orderId);
+		//Act
+		PaymentMethod result = fakeBuyerItem.VerifyOrAddPaymentMethod(cardTypeId, alias, cardNumber, securityNumber, cardHolderName, expiration, orderId);
 
         //Assert
         Assert.NotNull(result);
     }
 
     [Fact]
-    public void create_payment_method_success()
+    public void CreatePaymentMethodSuccess()
     {
-        //Arrange    
-        var cardTypeId = 1;
-        var alias = "fakeAlias";
-        var cardNumber = "124";
-        var securityNumber = "1234";
-        var cardHolderName = "FakeHolderNAme";
-        var expiration = DateTime.Now.AddYears(1);
-        var fakePaymentMethod = new PaymentMethod(cardTypeId, alias, cardNumber, securityNumber, cardHolderName, expiration);
+		//Arrange    
+		int cardTypeId = 1;
+		string alias = "fakeAlias";
+		string cardNumber = "124";
+		string securityNumber = "1234";
+		string cardHolderName = "FakeHolderNAme";
+		DateTime expiration = DateTime.Now.AddYears(1);
+		PaymentMethod fakePaymentMethod = new PaymentMethod(cardTypeId, alias, cardNumber, securityNumber, cardHolderName, expiration);
 
-        //Act
-        var result = new PaymentMethod(cardTypeId, alias, cardNumber, securityNumber, cardHolderName, expiration);
+		//Act
+		PaymentMethod result = new PaymentMethod(cardTypeId, alias, cardNumber, securityNumber, cardHolderName, expiration);
 
         //Assert
         Assert.NotNull(result);
     }
 
     [Fact]
-    public void create_payment_method_expiration_fail()
+    public void CreatePaymentMethodExpirationFail()
     {
-        //Arrange    
-        var cardTypeId = 1;
-        var alias = "fakeAlias";
-        var cardNumber = "124";
-        var securityNumber = "1234";
-        var cardHolderName = "FakeHolderNAme";
-        var expiration = DateTime.Now.AddYears(-1);        
+		//Arrange    
+		int cardTypeId = 1;
+		string alias = "fakeAlias";
+		string cardNumber = "124";
+		string securityNumber = "1234";
+		string cardHolderName = "FakeHolderNAme";
+		DateTime expiration = DateTime.Now.AddYears(-1);        
 
         //Act - Assert
         Assert.Throws<OrderingDomainException>(() => new PaymentMethod(cardTypeId, alias, cardNumber, securityNumber, cardHolderName, expiration));
     }
 
     [Fact]
-    public void payment_method_isEqualTo()
+    public void PaymentMethod_isEqualTo()
     {
-        //Arrange    
-        var cardTypeId = 1;
-        var alias = "fakeAlias";
-        var cardNumber = "124";
-        var securityNumber = "1234";
-        var cardHolderName = "FakeHolderNAme";
-        var expiration = DateTime.Now.AddYears(1);
+		//Arrange    
+		int cardTypeId = 1;
+		string alias = "fakeAlias";
+		string cardNumber = "124";
+		string securityNumber = "1234";
+		string cardHolderName = "FakeHolderNAme";
+		DateTime expiration = DateTime.Now.AddYears(1);
 
-        //Act
-        var fakePaymentMethod = new PaymentMethod(cardTypeId, alias, cardNumber, securityNumber, cardHolderName, expiration);
-        var result = fakePaymentMethod.IsEqualTo(cardTypeId, cardNumber, expiration);
+		//Act
+		PaymentMethod fakePaymentMethod = new PaymentMethod(cardTypeId, alias, cardNumber, securityNumber, cardHolderName, expiration);
+		bool result = fakePaymentMethod.IsEqualTo(cardTypeId, cardNumber, expiration);
 
         //Assert
         Assert.True(result);
@@ -108,18 +108,18 @@ public class BuyerAggregateTest
     [Fact]
     public void Add_new_PaymentMethod_raises_new_event()
     {
-        //Arrange    
-        var alias = "fakeAlias";
-        var orderId = 1;
-        var cardTypeId = 5;
-        var cardNumber = "12";
-        var cardSecurityNumber = "123";
-        var cardHolderName = "FakeName";
-        var cardExpiration = DateTime.Now.AddYears(1);
-        var expectedResult = 1;
+		//Arrange    
+		string alias = "fakeAlias";
+		int orderId = 1;
+		int cardTypeId = 5;
+		string cardNumber = "12";
+		string cardSecurityNumber = "123";
+		string cardHolderName = "FakeName";
+		DateTime cardExpiration = DateTime.Now.AddYears(1);
+		int expectedResult = 1;
 
-        //Act 
-        var fakeBuyer = new Buyer(Guid.NewGuid().ToString());
+		//Act 
+		Buyer fakeBuyer = new Buyer(Guid.NewGuid().ToString());
         fakeBuyer.VerifyOrAddPaymentMethod(cardTypeId, alias, cardNumber, cardSecurityNumber, cardHolderName, cardExpiration, orderId);
 
         //Assert

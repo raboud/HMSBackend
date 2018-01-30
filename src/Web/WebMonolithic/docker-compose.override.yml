@@ -1,10 +1,10 @@
 version: '2'
 
 services:
-  eshopweb:
+  hmsweb:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionString=Server=sql.data;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word
+      - ConnectionString=Server=sql.data;Database=CatalogDb;User Id=sa;Password=Pass@word
       - CatalogBaseUrl=http://localhost:5106
     ports:
       - "5106:5106"

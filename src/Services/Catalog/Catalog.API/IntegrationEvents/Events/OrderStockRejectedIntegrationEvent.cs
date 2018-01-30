@@ -1,6 +1,6 @@
 ﻿namespace HMS.Catalog.API.IntegrationEvents.Events
 {
-    using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Events;
+    using Microsoft.BuildingBlocks.EventBus.Events;
     using System.Collections.Generic;
 
     public class OrderStockRejectedIntegrationEvent : IntegrationEvent

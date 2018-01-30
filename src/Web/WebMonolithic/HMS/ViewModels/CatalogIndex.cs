@@ -1,8 +1,8 @@
-﻿using Microsoft.eShopWeb.Models;
+﻿using HMSWeb.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 
-namespace Microsoft.eShopWeb.ViewModels
+namespace HMSWeb.ViewModels
 {
     public class CatalogIndex
     {

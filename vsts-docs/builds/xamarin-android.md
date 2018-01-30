@@ -1,6 +1,6 @@
 # Xamarin Android Build
 
-Follow these steps to create a VSTS build for your eShopOnContainers app (android).
+Follow these steps to create a VSTS build for your HMSBackend app (android).
 
 **Note**: This document assumes basic knowledge about creating builds and configuring external VSTS connections 
 
@@ -22,7 +22,7 @@ Let's discuss each of them.
 
 Add a "NuGet restore" task and enter the following configuration:
 
-1. Enter `eShopOnContainers-Android.sln` in "Path to solution, packages.config, or project.json". This sln is created ex professo for the build and contains only the Xamarin Android project plus the Xamarin Forms one.
+1. Enter `HMS-Android.sln` in "Path to solution, packages.config, or project.json". This sln is created ex professo for the build and contains only the Xamarin Android project plus the Xamarin Forms one.
 
 ![Android Build Step 1](images/android-build-step1.png)
 

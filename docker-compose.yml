@@ -3,7 +3,7 @@ version: '3.3'
 services:
 
   basket.api:
-    image: eshop/basket.api:${TAG:-latest}
+    image: hms/basket.api:${TAG:-latest}
     build:
       context: .
       dockerfile: src/Services/Basket/Basket.API/Dockerfile    
@@ -13,7 +13,7 @@ services:
       - rabbitmq
 
   catalog.api:
-    image: eshop/catalog.api:${TAG:-latest}
+    image: hms/catalog.api:${TAG:-latest}
     build:
       context: .
       dockerfile: src/Services/Catalog/Catalog.API/Dockerfile
@@ -22,7 +22,7 @@ services:
       - rabbitmq
 
   identity.api:
-    image: eshop/identity.api:${TAG:-latest}
+    image: hms/identity.api:${TAG:-latest}
     build:
       context: .
       dockerfile: src/Services/Identity/Identity.API/Dockerfile    
@@ -30,7 +30,7 @@ services:
       - sql.data
 
   ordering.api:
-    image: eshop/ordering.api:${TAG:-latest}
+    image: hms/ordering.api:${TAG:-latest}
     build:
       context: .
       dockerfile: src/Services/Ordering/Ordering.API/Dockerfile    
@@ -39,7 +39,7 @@ services:
       - rabbitmq
 
   marketing.api:
-    image: eshop/marketing.api:${TAG:-latest}
+    image: hms/marketing.api:${TAG:-latest}
     build:
       context: .
       dockerfile: src/Services/Marketing/Marketing.API/Dockerfile    
@@ -50,7 +50,7 @@ services:
       - rabbitmq
 
   webspa:
-    image: eshop/webspa:${TAG:-latest}
+    image: hms/webspa:${TAG:-latest}
     build:
       context: .
       dockerfile: src/Web/WebSPA/Dockerfile    
@@ -62,7 +62,7 @@ services:
       - marketing.api
 
   webmvc:
-    image: eshop/webmvc:${TAG:-latest}
+    image: hms/webmvc:${TAG:-latest}
     build:
       context: .
       dockerfile: src/Web/WebMVC/Dockerfile    
@@ -74,13 +74,13 @@ services:
       - marketing.api
 
   webstatus:
-    image: eshop/webstatus:${TAG:-latest}
+    image: hms/webstatus:${TAG:-latest}
     build:
       context: .
       dockerfile: src/Web/WebStatus/Dockerfile
 
   payment.api:
-    image: eshop/payment.api:${TAG:-latest}
+    image: hms/payment.api:${TAG:-latest}
     build:
       context: .
       dockerfile: src/Services/Payment/Payment.API/Dockerfile
@@ -88,7 +88,7 @@ services:
       - rabbitmq    
     
   locations.api:
-    image: eshop/locations.api:${TAG:-latest}
+    image: hms/locations.api:${TAG:-latest}
     build:
       context: .
       dockerfile: src/Services/Location/Locations.API/Dockerfile

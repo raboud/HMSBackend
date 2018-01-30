@@ -2,7 +2,7 @@
 {
     using Marketing.API.IntegrationEvents.Events;
     using Marketing.API.Model;
-    using Microsoft.eShopOnContainers.BuildingBlocks.EventBus.Abstractions;
+    using Microsoft.BuildingBlocks.EventBus.Abstractions;
     using Marketing.API.Infrastructure.Repositories;
     using System;
     using System.Collections.Generic;

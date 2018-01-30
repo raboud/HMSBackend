@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.0</TargetFramework>
-    <RootNamespace>Microsoft.eShopOnContainers.BuildingBlocks.CommandBus</RootNamespace>
+    <RootNamespace>Microsoft.BuildingBlocks.CommandBus</RootNamespace>
   </PropertyGroup>
 
 </Project>

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
-using Microsoft.eShopOnContainers.BuildingBlocks.Resilience.Http;
-using Microsoft.eShopOnContainers.WebMVC.ViewModels;
+using Microsoft.BuildingBlocks.Resilience.Http;
+using Microsoft.WebMVC.ViewModels;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using System;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using WebMVC.Infrastructure;
 using WebMVC.Models;
 
-namespace Microsoft.eShopOnContainers.WebMVC.Services
+namespace Microsoft.WebMVC.Services
 {
     public class OrderingService : IOrderingService
     {

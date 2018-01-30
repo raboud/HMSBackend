@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using Xamarin.UITest;
 
-namespace eShopOnContainers.UITests
+namespace HMS.UITests
 {
     [TestFixture(Platform.Android)]
     [TestFixture(Platform.iOS)]
@@ -32,11 +32,11 @@ namespace eShopOnContainers.UITests
         {
             app.Tap(x => x.Text("[ LOGIN ]"));
             app.Tap(x => x.Class("WebView").Css("INPUT#Email"));
-            app.EnterText(x => x.Class("WebView").Css("INPUT#Email"), "jdoe@eshop.com");
+            app.EnterText(x => x.Class("WebView").Css("INPUT#Email"), "jdoe@randreng.com");
             app.Tap(x => x.Class("WebView").Css("INPUT#Password"));
-            app.EnterText(x => x.Class("WebView").Css("INPUT#Password"), "eshopContainers.123");
+            app.EnterText(x => x.Class("WebView").Css("INPUT#Password"), "Hms.123!");
             app.Tap(x => x.Class("WebView").Css("BUTTON.btn.btn-default.btn-brand.btn-brand-big"));
-            app.Screenshot("eShopOnContainers Login process");
+            app.Screenshot("HMS Login process");
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Microsoft.eShopOnContainers.Services.Ordering.API;
+﻿using Ordering.API;
 using System;
 using System.Collections.Generic;
 using System.Text;
