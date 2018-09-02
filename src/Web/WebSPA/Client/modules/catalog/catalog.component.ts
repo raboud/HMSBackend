@@ -91,7 +91,7 @@ export class CatalogComponent implements OnInit {
                     itemsPage : catalog.PageSize,
                     totalItems : catalog.Count,
                     totalPages: Math.ceil(catalog.Count / catalog.PageSize),
-                    items: catalog.pageSize
+                    items: catalog.PageSize
                 };
         });
     }
