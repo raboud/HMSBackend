@@ -12,13 +12,8 @@ import { BasketWrapperService }     from '../shared/services/basket.wrapper.serv
 import { ConfigurationService }     from '../shared/services/configuration.service';
 import { StorageService }           from '../shared/services/storage.service';
 
-import 'rxjs/Rx';
-import { Observable }               from 'rxjs/Observable';
-import 'rxjs/add/observable/throw';
-import { Observer }                 from 'rxjs/Observer';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import { Subject }                  from 'rxjs/Subject';
+import { Observable, Subject }               from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable()
 export class BasketService {
@@ -28,7 +23,7 @@ export class BasketService {
         items: []
     };
 
-    //observable that is fired when the basket is dropped
+    // observable that is fired when the basket is dropped
     private basketDropedSource = new Subject();
     basketDroped$ = this.basketDropedSource.asObservable();
     
@@ -65,29 +60,32 @@ export class BasketService {
     setBasket(basket): Observable<boolean> {
         let url = this.basketUrl + '/api/v1/basket/';
         this.basket = basket;
-        return this.service.post(url, basket).map((response: Response) => {
+        return this.service.post(url, basket).pipe(
+            map((response: Response) => {
             return true;
-        });
+        }));
     }
 
     setBasketCheckout(basketCheckout): Observable<boolean> {
         let url = this.basketUrl + '/api/v1/basket/checkout';
-        return this.service.postWithId(url, basketCheckout).map((response: Response) => {
+        return this.service.postWithId(url, basketCheckout).pipe(
+            map((response: Response) => {
             this.basketEvents.orderCreated();
             return true;
-        });
+        }));
     }
 
     getBasket(): Observable<IBasket> {
         let url = this.basketUrl + '/api/v1/basket/' + this.basket.buyerId;
-        return this.service.get(url).map((response: Response) => {
+        return this.service.get(url).pipe(
+            map((response: Response) => {
             if (response.status === 204) {
                 return null;
             }
 
             return response.json();
-        });
-    }    
+        }));
+    }
 
     mapBasketInfoCheckout(order: IOrder): IBasketCheckout {
         let basketCheckout = <IBasketCheckout>{};

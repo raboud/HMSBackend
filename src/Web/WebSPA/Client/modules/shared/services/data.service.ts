@@ -1,12 +1,8 @@
 ﻿import { Injectable } from '@angular/core';
 import { Http, Response, RequestOptionsArgs, RequestMethod, Headers } from '@angular/http';
 
-import 'rxjs/Rx';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/throw';
-import { Observer } from 'rxjs/Observer';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
+import { Observable } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 import { SecurityService } from './security.service';
 import { Guid } from '../../../guid';
@@ -25,10 +21,13 @@ export class DataService {
             options.headers.append('Authorization', 'Bearer ' + this.securityService.GetToken());
         }
 
-        return this.http.get(url, options).map(
-            (res: Response) => {
-            return res;
-        }).catch(this.handleError);
+        return this.http.get(url, options).pipe(
+            map(
+             (res: Response) => {
+             return res;
+            }),
+            catchError(this.handleError)
+        );
     }
 
     postWithId(url: string, data: any, params?: any): Observable<Response> {
@@ -55,10 +54,13 @@ export class DataService {
             options.headers.append('x-requestid', guid);
         }
 
-        return this.http.post(url, data, options).map(
+        return this.http.post(url, data, options).pipe(
+            map(
             (res: Response) => {
                 return res;
-            }).catch(this.handleError);
+            }),
+            catchError(this.handleError)
+        );
     }
 
     private doPut(url: string, data: any, needId: boolean, params?: any): Observable<Response> {
@@ -73,10 +75,13 @@ export class DataService {
             options.headers.append('x-requestid', guid);
         }
 
-        return this.http.put(url, data, options).map(
+        return this.http.put(url, data, options).pipe(
+            map(
             (res: Response) => {
                 return res;
-            }).catch(this.handleError);
+            }),
+            catchError(this.handleError)
+        );
     }
 
     delete(url: string, params?: any) {

@@ -7,11 +7,8 @@ import { ICampaignItem } from '../shared/models/campaignItem.model';
 import { SecurityService } from '../shared/services/security.service';
 import { ConfigurationService } from '../shared/services/configuration.service';
 
-import 'rxjs/Rx';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/throw';
-import { Observer } from 'rxjs/Observer';
-import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 
 @Injectable()
@@ -36,17 +33,21 @@ export class CampaignsService {
         let url = this.marketingUrl + '/api/v1/campaigns/user';
         url = url + '?pageIndex=' + pageIndex + '&pageSize=' + pageSize;
 
-        return this.service.get(url).map((response: Response) => {
-            return response.json();
-        });
+        return this.service.get(url).pipe(
+            map((response: Response) => {
+                return response.json();
+            })
+        );
     }
 
     getCampaign(id: number): Observable<ICampaignItem> {
         let url = this.marketingUrl + '/api/v1/campaigns/' + id;
 
-        return this.service.get(url).map((response: Response) => {
-            return response.json();
-        });
-    }    
+        return this.service.get(url).pipe(
+            map((response: Response) => {
+                return response.json();
+            })
+        );
+    }
 }
 

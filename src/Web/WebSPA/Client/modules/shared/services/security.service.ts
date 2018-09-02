@@ -1,8 +1,7 @@
 ﻿import { Injectable }                   from '@angular/core';
 import { Http, Response, Headers }      from '@angular/http';
-import 'rxjs/add/operator/map';
-import { Observable }                   from 'rxjs/Observable';
-import { Subject }                      from 'rxjs/Subject';
+import { map } from 'rxjs/operators';
+import { Observable, Subject }                   from 'rxjs';
 import { Router }                       from '@angular/router';
 import { ActivatedRoute }               from '@angular/router';
 import { ConfigurationService }         from './configuration.service';
@@ -205,7 +204,7 @@ export class SecurityService {
         return data;
     }
 
-    //private retrieve(key: string): any {
+    // private retrieve(key: string): any {
     //    let item = this.storage.getItem(key);
 
     //    if (item && item !== 'undefined') {
@@ -213,11 +212,11 @@ export class SecurityService {
     //    }
 
     //    return;
-    //}
+    // }
 
-    //private store(key: string, value: any) {
+    // private store(key: string, value: any) {
     //    this.storage.setItem(key, JSON.stringify(value));
-    //}
+    // }
 
     private getUserData = (): Observable<string[]> => {
         this.setHeaders();
@@ -227,7 +226,7 @@ export class SecurityService {
         return this._http.get(this.authorityUrl + '/connect/userinfo', {
             headers: this.headers,
             body: ''
-        }).map(res => res.json());
+        }).pipe(map(res => res.json()));
     }
 
     private setHeaders() {
