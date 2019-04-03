@@ -1,7 +1,7 @@
-﻿using HMS.Core.Helpers;
-using HMS.Core.Models.User;
+﻿using HMS.Core.Models.User;
 using HMS.Core.Services.Identity;
 using HMS.Core.Services.OpenUrl;
+using HMS.Core.Services.Settings;
 using HMS.Core.Validations;
 using HMS.Core.ViewModels.Base;
 using IdentityModel.Client;
@@ -22,13 +22,16 @@ namespace HMS.Core.ViewModels
         private bool _isLogin;
         private string _authUrl;
 
+        private ISettingsService _settingsService;
         private IOpenUrlService _openUrlService;
         private IIdentityService _identityService;
 
         public LoginViewModel(
+            ISettingsService settingsService,
             IOpenUrlService openUrlService,
             IIdentityService identityService)
         {
+            _settingsService = settingsService;
             _openUrlService = openUrlService;
             _identityService = identityService;
 
@@ -127,13 +130,13 @@ namespace HMS.Core.ViewModels
 
         public ICommand SettingsCommand => new Command(async () => await SettingsAsync());
 
-		public ICommand ValidateUserNameCommand => new Command(() => ValidateUserName());
+        public ICommand ValidateUserNameCommand => new Command(() => ValidateUserName());
 
-		public ICommand ValidatePasswordCommand => new Command(() => ValidatePassword());
+        public ICommand ValidatePasswordCommand => new Command(() => ValidatePassword());
 
         public override Task InitializeAsync(object navigationData)
         {
-            if(navigationData is LogoutParameter)
+            if (navigationData is LogoutParameter)
             {
                 var logoutParameter = (LogoutParameter)navigationData;
 
@@ -173,7 +176,7 @@ namespace HMS.Core.ViewModels
 
             if (isAuthenticated)
             {
-                Settings.AuthAccessToken = GlobalSetting.Instance.AuthToken;
+                _settingsService.AuthAccessToken = GlobalSetting.Instance.AuthToken;
 
                 await NavigationService.NavigateToAsync<MainViewModel>();
                 await NavigationService.RemoveLastFromBackStackAsync();
@@ -202,7 +205,7 @@ namespace HMS.Core.ViewModels
 
         private void Logout()
         {
-            var authIdToken = Settings.AuthIdToken;
+            var authIdToken = _settingsService.AuthIdToken;
             var logoutRequest = _identityService.CreateLogoutRequest(authIdToken);
 
             if (!string.IsNullOrEmpty(logoutRequest))
@@ -211,13 +214,13 @@ namespace HMS.Core.ViewModels
                 LoginUrl = logoutRequest;
             }
 
-            if (Settings.UseMocks)
+            if (_settingsService.UseMocks)
             {
-                Settings.AuthAccessToken = string.Empty;
-                Settings.AuthIdToken = string.Empty; 
+                _settingsService.AuthAccessToken = string.Empty;
+                _settingsService.AuthIdToken = string.Empty;
             }
 
-            Settings.UseFakeLocation = false;
+            _settingsService.UseFakeLocation = false;
         }
 
         private async Task NavigateAsync(string url)
@@ -226,8 +229,8 @@ namespace HMS.Core.ViewModels
 
             if (unescapedUrl.Equals(GlobalSetting.Instance.LogoutCallback))
             {
-                Settings.AuthAccessToken = string.Empty;
-                Settings.AuthIdToken = string.Empty;
+                _settingsService.AuthAccessToken = string.Empty;
+                _settingsService.AuthIdToken = string.Empty;
                 IsLogin = false;
                 LoginUrl = _identityService.CreateAuthorizationRequest();
             }
@@ -241,8 +244,8 @@ namespace HMS.Core.ViewModels
 
                     if (!string.IsNullOrWhiteSpace(accessToken))
                     {
-                        Settings.AuthAccessToken = accessToken;
-                        Settings.AuthIdToken = authResponse.IdentityToken;
+                        _settingsService.AuthAccessToken = accessToken;
+                        _settingsService.AuthIdToken = authResponse.IdentityToken;
                         await NavigationService.NavigateToAsync<MainViewModel>();
                         await NavigationService.RemoveLastFromBackStackAsync();
                     }
@@ -257,21 +260,21 @@ namespace HMS.Core.ViewModels
 
         private bool Validate()
         {
-			bool isValidUser = ValidateUserName();
+            bool isValidUser = ValidateUserName();
             bool isValidPassword = ValidatePassword();
 
             return isValidUser && isValidPassword;
         }
 
-		private bool ValidateUserName()
-		{
-			return _userName.Validate();
-		}
+        private bool ValidateUserName()
+        {
+            return _userName.Validate();
+        }
 
-		private bool ValidatePassword()
-		{
-			return _password.Validate();
-		}
+        private bool ValidatePassword()
+        {
+            return _password.Validate();
+        }
 
         private void AddValidations()
         {
@@ -281,7 +284,7 @@ namespace HMS.Core.ViewModels
 
         public void InvalidateMock()
         {
-            IsMock = Settings.UseMocks;
+            IsMock = _settingsService.UseMocks;
         }
     }
 }

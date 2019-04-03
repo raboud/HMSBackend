@@ -8,7 +8,7 @@ using Android.Views;
 using Android.Widget;
 using Xamarin.Forms.Platform.Android;
 using HMSBackend.Droid.Extensions;
-using HMSBackend.Core.Controls;
+using HMS.Core.Controls;
 using HMSBackend.Droid.Renderers;
 using Android.Support.V4.View;
 using Android.Graphics;

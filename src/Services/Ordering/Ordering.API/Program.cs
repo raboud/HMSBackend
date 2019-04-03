@@ -12,8 +12,11 @@ using System.IO;
 namespace Ordering.API
 {
     public class Program
-    {
-        public static void Main(string[] args)
+	{
+		public static readonly string Namespace = typeof(Program).Namespace;
+		public static readonly string AppName = Namespace.Substring(Namespace.LastIndexOf('.', Namespace.LastIndexOf('.') - 1) + 1);
+
+		public static void Main(string[] args)
         {
             BuildWebHost(args)
                 .MigrateDbContext<OrderingContext>((context, services) =>

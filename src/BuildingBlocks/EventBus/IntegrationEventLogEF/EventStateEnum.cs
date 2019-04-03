@@ -6,8 +6,9 @@ namespace Microsoft.BuildingBlocks.IntegrationEventLogEF
 {
     public enum EventStateEnum
     {
-        NotPublished = 0,
-        Published = 1,
-        PublishedFailed = 2
-    }
+		NotPublished = 0,
+		InProgress = 1,
+		Published = 2,
+		PublishedFailed = 3
+	}
 }

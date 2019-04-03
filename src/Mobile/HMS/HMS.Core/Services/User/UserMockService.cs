@@ -1,5 +1,5 @@
-﻿using System;
-using HMS.Core.Models.User;
+﻿using HMS.Core.Models.User;
+using System;
 using System.Threading.Tasks;
 
 namespace HMS.Core.Services.User
@@ -12,7 +12,7 @@ namespace HMS.Core.Services.User
             Name = "Jhon",
             LastName = "Doe",
             PreferredUsername = "Jdoe",
-            Email = "jdoe@hms.com",
+            Email = "jdoe@eshop.com",
             EmailVerified = true,
             PhoneNumber = "202-555-0165",
             PhoneNumberVerified = true,
@@ -29,7 +29,6 @@ namespace HMS.Core.Services.User
         public async Task<UserInfo> GetUserInfoAsync(string authToken)
         {
             await Task.Delay(500);
-
             return MockUserInfo;
         }
     }

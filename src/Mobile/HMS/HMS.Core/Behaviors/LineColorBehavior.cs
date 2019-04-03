@@ -1,6 +1,6 @@
-﻿using System.Linq;
+﻿using HMS.Core.Effects;
+using System.Linq;
 using Xamarin.Forms;
-using HMS.Core.Effects;
 
 namespace HMS.Core.Behaviors
 {

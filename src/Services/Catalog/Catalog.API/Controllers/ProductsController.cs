@@ -56,21 +56,21 @@ namespace Catalog.API.Controllers
 		[Route("[action]")]
 		[ProducesResponseType(typeof(PaginatedItemsViewModel<Product>), (int)HttpStatusCode.OK)]
 		public async Task<IActionResult> Page(
-			[FromQuery]int? catalogTypeId,
-			[FromQuery]int? catalogBrandId, 
+			[FromQuery]int? typeId,
+			[FromQuery]int? brandId, 
 			[FromQuery]int pageSize = 10, 
 			[FromQuery]int pageIndex = 0)
 		{
 			var root = (IQueryable<Product>)_context.Products;
 
-			if (catalogTypeId.HasValue)
+			if (typeId.HasValue)
 			{
-				root = root.Where(ci => ci.ProductCategories.Any(ct => ct.CategoryId == catalogTypeId));
+				root = root.Where(ci => ci.ProductCategories.Any(ct => ct.CategoryId == typeId));
 			}
 
-			if (catalogBrandId.HasValue)
+			if (brandId.HasValue)
 			{
-				root = root.Where(ci => ci.BrandId == catalogBrandId);
+				root = root.Where(ci => ci.BrandId == brandId);
 			}
 
 			long totalItems = await root

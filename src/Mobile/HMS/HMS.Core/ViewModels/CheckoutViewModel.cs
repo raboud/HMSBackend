@@ -1,18 +1,18 @@
-﻿using HMS.Core.Models.Navigation;
-using HMS.Core.ViewModels.Base;
-using System.Windows.Input;
-using Xamarin.Forms;
-using System.Threading.Tasks;
+﻿using HMS.Core.Models.Basket;
+using HMS.Core.Models.Navigation;
 using HMS.Core.Models.Orders;
-using System;
-using System.Collections.ObjectModel;
-using HMS.Core.Models.Basket;
-using System.Collections.Generic;
+using HMS.Core.Models.User;
 using HMS.Core.Services.Basket;
 using HMS.Core.Services.Order;
-using HMS.Core.Helpers;
+using HMS.Core.Services.Settings;
 using HMS.Core.Services.User;
-using HMS.Core.Models.User;
+using HMS.Core.ViewModels.Base;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace HMS.Core.ViewModels
 {
@@ -20,17 +20,20 @@ namespace HMS.Core.ViewModels
     {
         private ObservableCollection<BasketItem> _orderItems;
         private Order _order;
-        private Address _shippingAddress; 
+        private Address _shippingAddress;
 
+        private ISettingsService _settingsService;
         private IBasketService _basketService;
         private IOrderService _orderService;
         private IUserService _userService;
 
         public CheckoutViewModel(
+            ISettingsService settingsService,
             IBasketService basketService,
             IOrderService orderService,
             IUserService userService)
         {
+            _settingsService = settingsService;
             _basketService = basketService;
             _orderService = orderService;
             _userService = userService;
@@ -79,7 +82,7 @@ namespace HMS.Core.ViewModels
 
                 OrderItems = orderItems;
 
-                var authToken = Settings.AuthAccessToken;       
+                var authToken = _settingsService.AuthAccessToken;
                 var userInfo = await _userService.GetUserInfoAsync(authToken);
 
                 // Create Shipping Address
@@ -98,7 +101,7 @@ namespace HMS.Core.ViewModels
                 {
                     CardNumber = userInfo?.CardNumber,
                     CardHolderName = userInfo?.CardHolder,
-                    CardType = new CardType {  Id = 3, Name = "MasterCard" },
+                    CardType = new CardType { Id = 3, Name = "MasterCard" },
                     SecurityNumber = userInfo?.CardSecurityNumber
                 };
 
@@ -117,12 +120,12 @@ namespace HMS.Core.ViewModels
                     ShippingState = _shippingAddress.State,
                     ShippingCountry = _shippingAddress.Country,
                     ShippingStreet = _shippingAddress.Street,
-                    ShippingCity = _shippingAddress.City,  
+                    ShippingCity = _shippingAddress.City,
                     ShippingZipCode = _shippingAddress.ZipCode,
                     Total = CalculateTotal(CreateOrderItems(orderItems))
                 };
 
-                if (Settings.UseMocks)
+                if (_settingsService.UseMocks)
                 {
                     // Get number of orders
                     var orders = await _orderService.GetOrdersAsync(authToken);
@@ -140,7 +143,7 @@ namespace HMS.Core.ViewModels
         {
             try
             {
-                var authToken = Settings.AuthAccessToken;
+                var authToken = _settingsService.AuthAccessToken;
 
                 var basket = _orderService.MapOrderToBasket(Order);
                 basket.RequestId = Guid.NewGuid();
@@ -148,7 +151,7 @@ namespace HMS.Core.ViewModels
                 // Create basket checkout
                 await _basketService.CheckoutAsync(basket, authToken);
 
-                if (Settings.UseMocks)
+                if (_settingsService.UseMocks)
                 {
                     await _orderService.CreateOrderAsync(Order, authToken);
                 }
@@ -195,13 +198,13 @@ namespace HMS.Core.ViewModels
             }
 
             return orderItems;
-        } 
+        }
 
         private decimal CalculateTotal(List<OrderItem> orderItems)
         {
             decimal total = 0;
 
-            foreach(var orderItem in orderItems)
+            foreach (var orderItem in orderItems)
             {
                 total += (orderItem.Quantity * orderItem.UnitPrice);
             }

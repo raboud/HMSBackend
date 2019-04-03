@@ -3,7 +3,8 @@
     using Marketing.API.Model;
     using Microsoft.Extensions.Logging;
     using Polly;
-    using System;
+	using Polly.Retry;
+	using System;
     using System.Collections.Generic;
     using System.Data.SqlClient;
     using System.Linq;
@@ -68,7 +69,7 @@
             };
         }
      
-        private Policy CreatePolicy(int retries, ILogger<MarketingContextSeed> logger, string prefix)
+        private AsyncRetryPolicy CreatePolicy(int retries, ILogger<MarketingContextSeed> logger, string prefix)
         {
             return Policy.Handle<SqlException>().
                 WaitAndRetryAsync(

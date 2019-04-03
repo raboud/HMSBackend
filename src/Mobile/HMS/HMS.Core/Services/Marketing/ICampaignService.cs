@@ -1,6 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using HMS.Core.Models.Marketing;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using HMS.Core.Models.Marketing;
 
 namespace HMS.Core.Services.Marketing
 {

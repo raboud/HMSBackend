@@ -2,7 +2,6 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
-
 namespace HMS.Core.Services.Order
 {
     public interface IOrderService

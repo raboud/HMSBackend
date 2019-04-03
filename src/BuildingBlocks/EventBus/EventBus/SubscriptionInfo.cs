@@ -2,7 +2,7 @@
 
 namespace Microsoft.BuildingBlocks.EventBus
 {
-    public partial class InMemoryEventBusSubscriptionsManager : IEventBusSubscriptionsManager
+	public partial class InMemoryEventBusSubscriptionsManager : IEventBusSubscriptionsManager
     {
         public class SubscriptionInfo
         {

@@ -1,7 +1,7 @@
-﻿namespace HMS.Core.Models.Marketing
-{
-    using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
+namespace HMS.Core.Models.Marketing
+{
     public class CampaignRoot
     {
         public int PageIndex { get; set; }

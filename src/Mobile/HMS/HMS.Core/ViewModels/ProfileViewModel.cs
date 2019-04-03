@@ -1,8 +1,8 @@
 ﻿using HMS.Core.Extensions;
-using HMS.Core.Helpers;
 using HMS.Core.Models.Orders;
 using HMS.Core.Models.User;
 using HMS.Core.Services.Order;
+using HMS.Core.Services.Settings;
 using HMS.Core.ViewModels.Base;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
@@ -13,12 +13,13 @@ namespace HMS.Core.ViewModels
 {
     public class ProfileViewModel : ViewModelBase
     {
+        private readonly ISettingsService _settingsService;
+        private readonly IOrderService _orderService;
         private ObservableCollection<Order> _orders;
 
-        private IOrderService _orderService;
-
-        public ProfileViewModel(IOrderService orderService)
+        public ProfileViewModel(ISettingsService settingsService, IOrderService orderService)
         {
+            _settingsService = settingsService;
             _orderService = orderService;
         }
 
@@ -41,7 +42,7 @@ namespace HMS.Core.ViewModels
             IsBusy = true;
 
             // Get orders
-            var authToken = Settings.AuthAccessToken;
+            var authToken = _settingsService.AuthAccessToken;
             var orders = await _orderService.GetOrdersAsync(authToken);
             Orders = orders.ToObservableCollection();
 

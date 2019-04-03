@@ -2,10 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HMS.Core.Views.ProfileView" 
-             xmlns:views="clr-namespace:HMS.Core.Views;assembly=HMSBackend.Core"
-			 xmlns:viewModelBase="clr-namespace:HMS.Core.ViewModels.Base;assembly=HMSBackend.Core"
-             xmlns:templates="clr-namespace:HMS.Core.Views.Templates;assembly=HMSBackend.Core"
-             xmlns:behaviors="clr-namespace:HMS.Core.Behaviors;assembly=HMSBackend.Core"
+             xmlns:views="clr-namespace:HMS.Core.Views;assembly=HMS.Core"
+			 xmlns:viewModelBase="clr-namespace:HMS.Core.ViewModels.Base;assembly=HMS.Core"
+             xmlns:templates="clr-namespace:HMS.Core.Views.Templates;assembly=HMS.Core"
+             xmlns:behaviors="clr-namespace:HMS.Core.Behaviors;assembly=HMS.Core"
 			 viewModelBase:ViewModelLocator.AutoWireViewModel="true"
              Title="My profile">
     <ContentPage.Resources>

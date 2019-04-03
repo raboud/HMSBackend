@@ -1,7 +1,7 @@
-﻿using HMS.Core.Helpers;
-using HMS.Core.Models.Basket;
+﻿using HMS.Core.Models.Basket;
 using HMS.Core.Models.Catalog;
 using HMS.Core.Services.Basket;
+using HMS.Core.Services.Settings;
 using HMS.Core.Services.User;
 using HMS.Core.ViewModels.Base;
 using System.Collections.ObjectModel;
@@ -18,13 +18,16 @@ namespace HMS.Core.ViewModels
         private ObservableCollection<BasketItem> _basketItems;
         private decimal _total;
 
+        private ISettingsService _settingsService;
         private IBasketService _basketService;
         private IUserService _userService;
 
         public BasketViewModel(
+            ISettingsService settingsService,
             IBasketService basketService,
             IUserService userService)
         {
+            _settingsService = settingsService;
             _basketService = basketService;
             _userService = userService;
         }
@@ -48,7 +51,7 @@ namespace HMS.Core.ViewModels
                 RaisePropertyChanged(() => BasketItems);
             }
         }
-         
+
         public decimal Total
         {
             get { return _total; }
@@ -68,7 +71,7 @@ namespace HMS.Core.ViewModels
             if (BasketItems == null)
                 BasketItems = new ObservableCollection<BasketItem>();
 
-            var authToken = Settings.AuthAccessToken;
+            var authToken = _settingsService.AuthAccessToken;
             var userInfo = await _userService.GetUserInfoAsync(authToken);
 
             // Update Basket
@@ -93,7 +96,7 @@ namespace HMS.Core.ViewModels
 
                 await AddCatalogItemAsync(arg);
             });
-            
+
             await base.InitializeAsync(navigationData);
         }
 
@@ -114,16 +117,13 @@ namespace HMS.Core.ViewModels
         private async Task AddItemAsync(BasketItem item)
         {
             BadgeCount++;
-
             await AddBasketItemAsync(item);
-
             RaisePropertyChanged(() => BasketItems);
         }
 
         private async Task AddBasketItemAsync(BasketItem item)
         {
             BasketItems.Add(item);
-
             await ReCalculateTotalAsync();
         }
 
@@ -141,12 +141,12 @@ namespace HMS.Core.ViewModels
                 Total += (orderItem.Quantity * orderItem.UnitPrice);
             }
 
-            var authToken = Settings.AuthAccessToken;
+            var authToken = _settingsService.AuthAccessToken;
             var userInfo = await _userService.GetUserInfoAsync(authToken);
 
             await _basketService.UpdateBasketAsync(new CustomerBasket
             {
-                BuyerId = userInfo.UserId, 
+                BuyerId = userInfo.UserId,
                 Items = BasketItems.ToList()
             }, authToken);
         }

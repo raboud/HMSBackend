@@ -31,7 +31,7 @@ namespace Ordering.API.Application.DomainEventHandlers.OrderStartedEvent
 
             if (!buyerOriginallyExisted)
             {                
-                buyer = new Buyer(orderStartedEvent.UserId);
+                buyer = new Buyer(orderStartedEvent.UserId, orderStartedEvent.UserName);
             }
 
             buyer.VerifyOrAddPaymentMethod(cardTypeId,

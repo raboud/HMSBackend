@@ -10,6 +10,7 @@ using Android.Runtime;
 using FFImageLoading;
 using System;
 using Plugin.Permissions;
+using HMS;
 
 namespace HMSBackend.Droid.Activities
 {

@@ -1,7 +1,7 @@
-﻿namespace HMS.Core.Models.Marketing
-{
-    using System;
+﻿using System;
 
+namespace HMS.Core.Models.Marketing
+{
     public class CampaignItem
     {
         public int Id { get; set; }

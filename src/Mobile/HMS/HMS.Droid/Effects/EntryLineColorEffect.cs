@@ -3,7 +3,7 @@ using HMSBackend.Droid.Effects;
 using Xamarin.Forms.Platform.Android;
 using System;
 using Android.Widget;
-using HMSBackend.Core.Behaviors;
+using HMS.Core.Behaviors;
 using System.ComponentModel;
 using System.Diagnostics;
 

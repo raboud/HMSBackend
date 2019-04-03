@@ -1,10 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using HMS.Core.Models.Catalog;
+using HMS.Core.Services.Catalog;
 using HMS.Core.ViewModels.Base;
 using System.Collections.ObjectModel;
-using Xamarin.Forms;
-using HMS.Core.Models.Catalog;
-using HMS.Core.Services.Catalog;
+using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace HMS.Core.ViewModels
 {

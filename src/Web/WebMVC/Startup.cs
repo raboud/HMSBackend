@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.BuildingBlocks.Resilience.Http;
-using Microsoft.WebMVC.Infrastructure;
 using Microsoft.WebMVC.Services;
 using Microsoft.WebMVC.ViewModels;
 using Microsoft.Extensions.Configuration;
@@ -20,6 +19,9 @@ using System.IdentityModel.Tokens.Jwt;
 using WebMVC.Infrastructure;
 using WebMVC.Infrastructure.Middlewares;
 using WebMVC.Services;
+using Polly;
+using Polly.Extensions.Http;
+using System.Net.Http;
 
 namespace Microsoft.WebMVC
 {
@@ -75,34 +77,12 @@ namespace Microsoft.WebMVC
             services.AddTransient<ICampaignService, CampaignService>();
             services.AddTransient<ILocationService, LocationService>();
             services.AddTransient<IIdentityParser<ApplicationUser>, IdentityParser>();
+			services.AddHttpClient<IBasketService, BasketService>()
+				   .SetHandlerLifetime(TimeSpan.FromMinutes(5))  //Sample. Default lifetime is 2 minutes
+				   .AddHttpMessageHandler<HttpClientAuthorizationDelegatingHandler>()
+				   .AddPolicyHandler(GetRetryPolicy())
+				   .AddPolicyHandler(GetCircuitBreakerPolicy());
 
-            if (Configuration.GetValue<string>("UseResilientHttp") == bool.TrueString)
-            {
-                services.AddSingleton<IResilientHttpClientFactory, ResilientHttpClientFactory>(sp =>
-                {
-                    var logger = sp.GetRequiredService<ILogger<ResilientHttpClient>>();
-                    var httpContextAccessor = sp.GetRequiredService<IHttpContextAccessor>();
-
-                    var retryCount = 6;
-                    if (!string.IsNullOrEmpty(Configuration["HttpClientRetryCount"]))
-                    {
-                        retryCount = int.Parse(Configuration["HttpClientRetryCount"]);
-                    }
-
-                    var exceptionsAllowedBeforeBreaking = 5;
-                    if (!string.IsNullOrEmpty(Configuration["HttpClientExceptionsAllowedBeforeBreaking"]))
-                    {
-                        exceptionsAllowedBeforeBreaking = int.Parse(Configuration["HttpClientExceptionsAllowedBeforeBreaking"]);
-                    }
-
-                    return new ResilientHttpClientFactory(logger, httpContextAccessor, exceptionsAllowedBeforeBreaking, retryCount);
-                });
-                services.AddSingleton<IHttpClient, ResilientHttpClient>(sp => sp.GetService<IResilientHttpClientFactory>().CreateResilientHttpClient());
-            }
-            else
-            {
-                services.AddSingleton<IHttpClient, StandardHttpClient>();
-            }
             var useLoadTest = Configuration.GetValue<bool>("UseLoadTest");
             var identityUrl = Configuration.GetValue<string>("IdentityUrl");
             var callBackUrl = Configuration.GetValue<string>("CallBackUrl");
@@ -203,5 +183,21 @@ namespace Microsoft.WebMVC
                     new FabricTelemetryInitializer());
             }
         }
-    }
+
+
+		static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
+		{
+			return HttpPolicyExtensions
+			  .HandleTransientHttpError()
+			  .OrResult(msg => msg.StatusCode == System.Net.HttpStatusCode.NotFound)
+			  .WaitAndRetryAsync(6, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)));
+
+		}
+		static IAsyncPolicy<HttpResponseMessage> GetCircuitBreakerPolicy()
+		{
+			return HttpPolicyExtensions
+				.HandleTransientHttpError()
+				.CircuitBreakerAsync(5, TimeSpan.FromSeconds(30));
+		}
+	}
 }

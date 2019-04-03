@@ -1,8 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using HMS.Core.Models.Navigation;
 using HMS.Core.ViewModels.Base;
-using HMS.Core.Models.Navigation;
-using Xamarin.Forms;
+using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace HMS.Core.ViewModels
 {

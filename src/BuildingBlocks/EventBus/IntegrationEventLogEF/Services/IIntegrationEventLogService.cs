@@ -9,7 +9,10 @@ namespace Microsoft.BuildingBlocks.IntegrationEventLogEF.Services
 {
     public interface IIntegrationEventLogService
     {
-        Task SaveEventAsync(IntegrationEvent @event, DbTransaction transaction);
-        Task MarkEventAsPublishedAsync(IntegrationEvent @event);
-    }
+		Task<IEnumerable<IntegrationEventLogEntry>> RetrieveEventLogsPendingToPublishAsync();
+		Task SaveEventAsync(IntegrationEvent @event, DbTransaction transaction);
+		Task MarkEventAsPublishedAsync(Guid eventId);
+		Task MarkEventAsInProgressAsync(Guid eventId);
+		Task MarkEventAsFailedAsync(Guid eventId);
+	}
 }

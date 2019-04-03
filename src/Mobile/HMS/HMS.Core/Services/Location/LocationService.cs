@@ -1,10 +1,9 @@
-﻿namespace HMS.Core.Services.Location
-{
-    using System;
-    using System.Threading.Tasks;
-    using Models.Location;
-    using RequestProvider;
+﻿using System;
+using System.Threading.Tasks;
+using HMS.Core.Services.RequestProvider;
 
+namespace HMS.Core.Services.Location
+{
     public class LocationService : ILocationService
     {
         private readonly IRequestProvider _requestProvider;
@@ -14,7 +13,7 @@
             _requestProvider = requestProvider;
         }
 
-        public async Task UpdateUserLocation(Location newLocReq, string token)
+        public async Task UpdateUserLocation(HMS.Core.Models.Location.Location newLocReq, string token)
         {
             UriBuilder builder = new UriBuilder(GlobalSetting.Instance.LocationEndpoint);
 

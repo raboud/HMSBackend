@@ -1,12 +1,11 @@
-﻿using System;
-using System.Globalization;
-using HMS.Core.Helpers;
-using HMS.Services;
-using HMS.Core.ViewModels.Base;
-using System.Threading.Tasks;
-using HMS.Core.Models.Location;
+﻿using HMS.Core.Models.Location;
 using HMS.Core.Services.Location;
+using HMS.Core.Services.Settings;
+using HMS.Core.ViewModels.Base;
+using HMS.Services;
 using Plugin.Geolocator;
+using System.Globalization;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,15 +14,14 @@ namespace HMS
 {
     public partial class App : Application
     {
-        public bool UseMockServices { get; set; }
+        ISettingsService _settingsService;
 
         public App()
         {
             InitializeComponent();
 
             InitApp();
-
-			if (Device.RuntimePlatform == Device.UWP)
+            if (Device.RuntimePlatform == Device.UWP)
             {
                 InitNavigation();
             }
@@ -31,8 +29,9 @@ namespace HMS
 
         private void InitApp()
         {
-            UseMockServices = Settings.UseMocks;
-            ViewModelLocator.RegisterDependencies(UseMockServices);
+            _settingsService = ViewModelLocator.Resolve<ISettingsService>();
+            if (!_settingsService.UseMocks)
+                ViewModelLocator.UpdateDependencies(_settingsService.UseMocks);
         }
 
         private Task InitNavigation()
@@ -41,22 +40,21 @@ namespace HMS
             return navigationService.InitializeAsync();
         }
 
-
         protected override async void OnStart()
         {
             base.OnStart();
 
-			if (Device.RuntimePlatform != Device.UWP)
+            if (Device.RuntimePlatform != Device.UWP)
             {
                 await InitNavigation();
             }
 
-            if (Settings.AllowGpsLocation && !Settings.UseFakeLocation)
+            if (_settingsService.AllowGpsLocation && !_settingsService.UseFakeLocation)
             {
                 await GetGpsLocation();
             }
 
-            if (!Settings.UseMocks && !string.IsNullOrEmpty(Settings.AuthAccessToken))
+            if (!_settingsService.UseMocks && !string.IsNullOrEmpty(_settingsService.AuthAccessToken))
             {
                 await SendCurrentLocation();
             }
@@ -71,21 +69,21 @@ namespace HMS
 
         private async Task GetGpsLocation()
         {
-            var locator = CrossGeolocator.Current;
+			Plugin.Geolocator.Abstractions.IGeolocator locator = CrossGeolocator.Current;
 
             if (locator.IsGeolocationEnabled && locator.IsGeolocationAvailable)
-            { 
-                locator.AllowsBackgroundUpdates = true;
+            {
+//                locator.AllowsBackgroundUpdates = true;
                 locator.DesiredAccuracy = 50;
 
                 var position = await locator.GetPositionAsync();
 
-                Settings.Latitude = position.Latitude.ToString();
-                Settings.Longitude = position.Longitude.ToString();
+                _settingsService.Latitude = position.Latitude.ToString();
+                _settingsService.Longitude = position.Longitude.ToString();
             }
             else
             {
-                Settings.AllowGpsLocation = false;
+                _settingsService.AllowGpsLocation = false;
             }
         }
 
@@ -93,13 +91,12 @@ namespace HMS
         {
             var location = new Location
             {
-                Latitude = double.Parse(Settings.Latitude, CultureInfo.InvariantCulture),
-                Longitude = double.Parse(Settings.Longitude, CultureInfo.InvariantCulture)
+                Latitude = double.Parse(_settingsService.Latitude, CultureInfo.InvariantCulture),
+                Longitude = double.Parse(_settingsService.Longitude, CultureInfo.InvariantCulture)
             };
 
             var locationService = ViewModelLocator.Resolve<ILocationService>();
-            await locationService.UpdateUserLocation(location,
-                Settings.AuthAccessToken);
+            await locationService.UpdateUserLocation(location, _settingsService.AuthAccessToken);
         }
     }
 }

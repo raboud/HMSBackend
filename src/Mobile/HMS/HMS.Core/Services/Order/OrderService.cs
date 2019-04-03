@@ -1,10 +1,9 @@
 ﻿using HMS.Core.Models.Basket;
+using HMS.Core.Models.Orders;
 using HMS.Core.Services.RequestProvider;
 using System;
 using System.Collections.ObjectModel;
-using System.Net.Http;
 using System.Threading.Tasks;
-using HMS.Core.Models.Orders;
 
 namespace HMS.Core.Services.Order
 {

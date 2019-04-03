@@ -1,9 +1,9 @@
-﻿using System;
+﻿using HMS.Core.Models.Marketing;
+using System;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 using System.Linq;
+using System.Threading.Tasks;
 using Xamarin.Forms;
-using HMS.Core.Models.Marketing;
 
 namespace HMS.Core.Services.Marketing
 {

@@ -1,10 +1,9 @@
-﻿namespace HMS.Core.Services.Location
-{
-    using System.Threading.Tasks;
-    using Models.Location;
-    
+﻿using System.Threading.Tasks;
+
+namespace HMS.Core.Services.Location
+{    
     public interface ILocationService
     {
-        Task UpdateUserLocation(Location newLocReq, string token);
+        Task UpdateUserLocation(HMS.Core.Models.Location.Location newLocReq, string token);
     }
 }

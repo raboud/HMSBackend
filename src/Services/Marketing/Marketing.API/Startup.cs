@@ -1,13 +1,9 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Autofac;
+﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using Microsoft.Azure.ServiceBus;
-using Microsoft.BuildingBlocks.EventBus;
-using Microsoft.BuildingBlocks.EventBus.Abstractions;
-using Microsoft.BuildingBlocks.EventBusRabbitMQ;
-using Microsoft.BuildingBlocks.EventBusServiceBus;
-using Microsoft.EntityFrameworkCore;
+using Infrastructure.Filters;
+using Infrastructure.Middlewares;
 using Marketing.API.Infrastructure;
+using Marketing.API.Infrastructure.Exceptions;
 using Marketing.API.Infrastructure.Repositories;
 using Marketing.API.Infrastructure.Services;
 using Marketing.API.IntegrationEvents.Events;
@@ -15,7 +11,20 @@ using Marketing.API.IntegrationEvents.Handlers;
 using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.ApplicationInsights.ServiceFabric;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Azure.ServiceBus;
+using Microsoft.BuildingBlocks.EventBus;
+using Microsoft.BuildingBlocks.EventBus.Abstractions;
+using Microsoft.BuildingBlocks.EventBusRabbitMQ;
+using Microsoft.BuildingBlocks.EventBusServiceBus;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.HealthChecks;
+using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
@@ -23,15 +32,6 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Reflection;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.HealthChecks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Hosting;
-using Infrastructure.Filters;
-using Infrastructure.Middlewares;
-using Marketing.API.Infrastructure.Exceptions;
 
 namespace Marketing.API
 {
@@ -206,7 +206,8 @@ namespace Marketing.API
                .UseSwaggerUI(c =>
                {
                    c.SwaggerEndpoint($"{ (!string.IsNullOrEmpty(pathBase) ? pathBase : string.Empty) }/swagger/v1/swagger.json", "Marketing.API V1");
-                   c.ConfigureOAuth2("marketingswaggerui", "", "", "Marketing Swagger UI");
+				   c.OAuthClientId("marketingswaggerui");
+				   c.OAuthAppName("Marketing Swagger UI");
                });            
 
             ConfigureEventBus(app);

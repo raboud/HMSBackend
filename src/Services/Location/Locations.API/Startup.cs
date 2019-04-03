@@ -173,8 +173,28 @@ namespace Locations.API
               .UseSwaggerUI(c =>
               {
                   c.SwaggerEndpoint($"{ (!string.IsNullOrEmpty(pathBase) ? pathBase : string.Empty) }/swagger/v1/swagger.json", "Locations.API V1");
-                  c.ConfigureOAuth2("locationsswaggerui", "", "", "Locations Swagger UI");
-              });
+				  c.OAuthAppName("Locations Swagger UI");
+				  c.OAuthClientId("locationsswaggerui");
+//				  c.
+
+//                  c.ConfigureOAuth2("locationsswaggerui", "", "", "Locations Swagger UI");
+
+
+//				  ClientId = ,
+//                    ClientName = "",
+//                    AllowedGrantTypes = GrantTypes.Implicit,
+//                    AllowAccessTokensViaBrowser = true,
+
+//                    RedirectUris = { $"{clientsUrl["LocationsApi"]}/swagger/o2c.html" },
+//                    PostLogoutRedirectUris = { $"{clientsUrl["LocationsApi"]}/swagger/" },
+
+//                    AllowedScopes =
+
+//					{
+//					  "locations"
+
+//					}
+			  });
 
             LocationsContextSeed.SeedAsync(app, loggerFactory)
                 .Wait();

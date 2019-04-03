@@ -204,7 +204,7 @@ namespace Ordering.API
         }
 
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, Microsoft.AspNetCore.Hosting.IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
@@ -227,7 +227,8 @@ namespace Ordering.API
                .UseSwaggerUI(c =>
                {
                    c.SwaggerEndpoint($"{ (!string.IsNullOrEmpty(pathBase) ? pathBase : string.Empty) }/swagger/v1/swagger.json", "Ordering.API V1");
-                   c.ConfigureOAuth2("orderingswaggerui", "", "", "Ordering Swagger UI");
+				   c.OAuthClientId("orderingswaggerui");
+				   c.OAuthAppName("Ordering Swagger UI");
                });
 
             ConfigureEventBus(app);

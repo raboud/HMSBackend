@@ -3,7 +3,7 @@ using Ordering.Domain.AggregatesModel.BuyerAggregate;
 
 namespace Ordering.Domain.Events
 {
-    public class BuyerAndPaymentMethodVerifiedDomainEvent
+	public class BuyerAndPaymentMethodVerifiedDomainEvent
         : INotification
     {
         public Buyer Buyer { get; private set; }
@@ -17,4 +17,5 @@ namespace Ordering.Domain.Events
             OrderId = orderId;
         }
     }
+
 }

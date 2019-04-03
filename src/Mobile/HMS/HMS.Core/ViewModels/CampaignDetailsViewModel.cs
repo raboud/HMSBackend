@@ -1,21 +1,26 @@
-﻿using System.Threading.Tasks;
+﻿using HMS.Core.Models.Marketing;
+using HMS.Core.Services.Marketing;
+using HMS.Core.Services.Settings;
+using HMS.Core.ViewModels.Base;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-using HMS.Core.ViewModels.Base;
-using HMS.Core.Helpers;
-using HMS.Core.Models.Marketing;
-using HMS.Core.Services.Marketing;
 
 namespace HMS.Core.ViewModels
 {
     public class CampaignDetailsViewModel : ViewModelBase
     {
-        private CampaignItem _campaign;
-        private bool _isDetailsSite;
+        private readonly ISettingsService _settingsService;
         private readonly ICampaignService _campaignService;
 
-        public CampaignDetailsViewModel(ICampaignService campaignService)
+        private CampaignItem _campaign;
+        private bool _isDetailsSite;
+
+        public ICommand EnableDetailsSiteCommand => new Command(EnableDetailsSite);
+
+        public CampaignDetailsViewModel(ISettingsService settingsService, ICampaignService campaignService)
         {
+            _settingsService = settingsService;
             _campaignService = campaignService;
         }
 
@@ -44,15 +49,11 @@ namespace HMS.Core.ViewModels
             if (navigationData is int)
             {
                 IsBusy = true;
-
                 // Get campaign by id
-                Campaign = await _campaignService.GetCampaignByIdAsync((int)navigationData, Settings.AuthAccessToken);
-
+                Campaign = await _campaignService.GetCampaignByIdAsync((int)navigationData, _settingsService.AuthAccessToken);
                 IsBusy = false;
             }
         }
-
-        public ICommand EnableDetailsSiteCommand => new Command(EnableDetailsSite);
 
         private void EnableDetailsSite()
         {

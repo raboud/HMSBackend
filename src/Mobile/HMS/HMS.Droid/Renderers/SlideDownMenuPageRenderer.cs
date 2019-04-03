@@ -1,9 +1,10 @@
 using SlideOverKit.Droid;
-using HMSBackend.Core.Views;
+using HMS.Core.Views;
 using HMSBackend.Droid.Renderers;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
+using Android.Content;
 
 [assembly: ExportRenderer(typeof(CatalogView), typeof(SlideDownMenuPageRenderer))]
 namespace HMSBackend.Droid.Renderers
@@ -16,12 +17,12 @@ namespace HMSBackend.Droid.Renderers
 
         public Action<int, int, int, int> OnSizeChangedEvent { get; set; }
 
-        public SlideDownMenuPageRenderer()
-        {
-            new SlideOverKitDroidHandler().Init(this);
-        }
+		public SlideDownMenuPageRenderer(Context context)
+		{
+			new SlideOverKitDroidHandler().Init(this, context);
+		}
 
-        protected override void OnElementChanged(ElementChangedEventArgs<Page> e)
+		protected override void OnElementChanged(ElementChangedEventArgs<Page> e)
         {
             base.OnElementChanged(e);
             if (OnElementChangedEvent != null)

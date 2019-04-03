@@ -1,8 +1,8 @@
-﻿using System;
-using SlideOverKit;
-using Xamarin.Forms;
+﻿using HMS.Core.ViewModels;
 using HMS.Core.ViewModels.Base;
-using HMS.Core.ViewModels;
+using SlideOverKit;
+using System;
+using Xamarin.Forms;
 
 namespace HMS.Core.Views
 {

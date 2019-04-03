@@ -5,6 +5,8 @@ namespace Ordering.API.Application.IntegrationEvents
 {
     public interface IOrderingIntegrationEventService
     {
-        Task PublishThroughEventBusAsync(IntegrationEvent evt);
-    }
+		Task PublishEventsThroughEventBusAsync();
+		Task AddAndSaveEventAsync(IntegrationEvent evt);
+
+	}
 }

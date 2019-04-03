@@ -17,6 +17,7 @@
 	using Ordering.Domain.AggregatesModel.BuyerAggregate;
 	using Ordering.Domain.AggregatesModel.OrderAggregate;
 	using Ordering.Infrastructure;
+	using Polly.Retry;
 
 	public class OrderingContextSeed
     {
@@ -180,7 +181,7 @@
         }
 
      
-        private Policy CreatePolicy( ILogger<OrderingContextSeed> logger, string prefix, int retries =3)
+        private AsyncRetryPolicy CreatePolicy( ILogger<OrderingContextSeed> logger, string prefix, int retries =3)
         {
             return Policy.Handle<SqlException>().
                 WaitAndRetryAsync(

@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Polly;
+using Polly.Retry;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Globalization;
@@ -14,6 +14,7 @@ using System.Linq;
 using HMS.Catalog.API.Infrastructure.EntityConfigurations;
 using HMS.Catalog.API.Model;
 using Microsoft.EntityFrameworkCore;
+using Polly;
 
 namespace HMS.Catalog.API.Infrastructure
 {
@@ -255,7 +256,7 @@ namespace HMS.Catalog.API.Infrastructure
 			ZipFile.ExtractToDirectory(zipFileCatalogItemPictures, picturePath);
 		}
 
-		private Policy CreatePolicy(ILogger<CatalogContextSeed> logger, string prefix, int retries = 3)
+		private AsyncRetryPolicy CreatePolicy(ILogger<CatalogContextSeed> logger, string prefix, int retries = 3)
 		{
 			return Policy.Handle<SqlException>().
 				WaitAndRetryAsync(

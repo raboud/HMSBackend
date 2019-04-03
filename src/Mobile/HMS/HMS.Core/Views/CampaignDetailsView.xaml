@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HMS.Core.Views.CampaignDetailsView"
-             xmlns:converters="clr-namespace:HMS.Core.Converters;assembly=HMSBackend.Core"
-			 xmlns:viewModelBase="clr-namespace:HMS.Core.ViewModels.Base;assembly=HMSBackend.Core"
+             xmlns:converters="clr-namespace:HMS.Core.Converters;assembly=HMS.Core"
+			 xmlns:viewModelBase="clr-namespace:HMS.Core.ViewModels.Base;assembly=HMS.Core"
 			 viewModelBase:ViewModelLocator.AutoWireViewModel="true"
              Title="Campaign Details">
     <ContentPage.Resources>
